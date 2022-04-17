@@ -14,4 +14,4 @@ El programa utiliza como datos de entrada el contenido de dos archivos de texto:
 ## Salidas
 Se generan como salida dos archivos csv:
 - Lista_votaciones.csv. Listado con todas las listas que se computan concatenadas, manteniendo la posición en cada lista individual y la puntuación correspondiente.
-- Lista_votaciones_stats.csv. Lista agregada, sumando los puntos de todas las listas computadas y ordenada de mayor a menorn puntuación total
+- Lista_votaciones_stats.csv. Lista agregada, sumando los puntos de todas las listas computadas y ordenada de mayor a menor puntuación total. Este csv se puede importan en Letterboxd como una lista. La puntuación total de la película se guarda en la review.
