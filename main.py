@@ -79,4 +79,6 @@ if __name__ == '__main__':
     df_lista['Puntos'] = df_lista.apply(lambda row: calcula_puntos(row['Pos']), axis=1)
     df_lista.to_csv('Lista_votaciones.csv')
     resultado_final = df_lista.groupby(['Titulo', 'Anio']).agg({'Puntos': 'sum'}).sort_values('Puntos', ascending=False)
+    resultado_final = resultado_final.rename(columns={"Puntos": "Review"})
+    resultado_final = resultado_final.rename_axis(index={'Titulo': 'Title',  "Anio": "Year"})
     resultado_final.to_csv('Lista_votaciones_stats.csv')
