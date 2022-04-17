@@ -36,19 +36,19 @@ def get_films(usuario, nombre):
 def calcula_puntos(pos):
     # ASIGNAR PUNTOS SEGUN EL ORDEN
     # 1ª: 5 puntos,
-    # 2ª - 7ª: 4 pts
-    # 8 - 13: 3  pts
-    # 14 - 19: 2 pts
-    # 20 - 25: 1 punto
+    # 2ª - 4ª: 4 pts
+    # 5 - 9: 3  pts
+    # 10 - 16: 2 pts
+    # 17 - 25: 1 punto
 
     pos = int(pos)
     if pos == 1:
         pts = 5
-    elif pos < 8:
+    elif pos < 5:
         pts = 4
-    elif pos < 14:
+    elif pos < 10:
         pts = 3
-    elif pos < 20:
+    elif pos < 17:
         pts = 2
     elif pos < 26:
         pts = 1
