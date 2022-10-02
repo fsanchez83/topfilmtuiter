@@ -73,4 +73,4 @@ Mediante este proceso se determina el id de la película en TMDB, lo cual no se 
 
 Este archivo, junto con el *Lista_votaciones.csv* generado en el paso 2.2, se utiliza como pase para el pbix que genera todas las estadísticas en Power BI.
 
-Se incluyen también estos archivos, además el pbix, en la carpeta de Resultados.
+Se incluyen también estos archivos, además del pbix, en la carpeta de Resultados. También se incluye un fichero llamado directoras.txt, que se ha generado manualmente y se utiliza, en el informe de Power BI, para poder resaltar las directoras del conjunto de datos.
