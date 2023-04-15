@@ -71,5 +71,5 @@ for usuarios in user_ref:
 df_participantes=pd.DataFrame(data=lista_amigos)
 print(df_participantes)
 participantes=df_participantes.value_counts()
-participantes.to_csv('Ficheros_TFT1919/Seguidos10_15_04_2023.csv',sep=';')
+participantes.to_csv('Seguidos10_15_04_2023.csv',sep=';')
 
