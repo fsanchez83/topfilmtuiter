@@ -1,154 +1,225 @@
+'''
+Created on 05 abr. 2023
 
+@author: fsanchez
+'''
 # -*- coding: utf-8 -*-
 
 import tmdbsimple as tmdb
 import pandas as pd
 import sys
 import os.path
+import requests as rq
+from bs4 import BeautifulSoup
+import yaml
+from yaml.loader import SafeLoader
 
-tmdb.API_KEY = 'COMPLETAR'
+with open('../config.cfg') as f:
+    dataConfig = yaml.load(f, Loader=SafeLoader)
 
-# Se incluye una lista blanca para forzar el id de determinadas películas
+with open('../secrets.cfg') as f:
+    data = yaml.load(f, Loader=SafeLoader)
 
-filmid_whitelist=pd.read_csv('filmid_whitelist')
-whitelist=filmid_whitelist[['Title','Year']]
-lista_basica = pd.read_csv('Lista_votaciones_stats.csv')
+id_lista = dataConfig['General']['id_lista']
+filmid_whitelist = pd.read_csv('filmid_whitelist_tft')
 
-Atributos_peli = ['Votos', "Id_peli", "Titulo", "Popularidad", 'Rating', 'Fecha', 'Duracion', 'Pais', 'Idioma',
-                  'Presupuesto', 'Ganancia', 'Generos', 'Director', 'Casting', 'Guion', 'Montaje', 'DOP', 'Resumen']
+lista_stats_base = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_'+id_lista+'.csv'
+dataset_vprevia = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/dataset_'+id_lista+'.csv'
+dataset_pbi = dataConfig['Resultados']['base_pbi']+'datasets/dataset_'+id_lista+'.csv'
+
+tmdb.API_KEY = data['TMDB']['API_KEY']
+pd.set_option('display.max_columns', None)
+actualiza = False
+lista_basica = pd.read_csv(lista_stats_base)
+
+errores=[]
+
+if os.path.exists(dataset_vprevia):
+    actualiza = True
+    print("##################### ACTUALIZA FICHERO ##################")
+    lista_con_id = pd.read_csv(dataset_vprevia, sep=";")
+    lista_basica = lista_basica.merge(lista_con_id.drop_duplicates(), on="url_peli", how='left', indicator=True)
+    lista_basica = lista_basica[lista_basica['_merge'] == 'left_only'].reset_index()
+
+def get_tmdbId(url):
+    url_base = 'https://letterboxd.com'
+    url = url_base + url
+    page = rq.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    try:
+        literal = soup.find_all("a", {"data-track-action": "TMDb"})[0].get('href').split('themoviedb.org/')[1].split(
+            '/')
+        tmdb_type = literal[0]
+        tmdb_id = literal[1]
+    except:
+        tmdb_type = 0
+        tmdb_id = 0
+    return tmdb_type, tmdb_id
+
+
+Atributos_peli = ['Votos', "url_peli", "Id_peli", "Titulo", "Popularidad", 'Rating', 'Fecha', 'Duracion', 'Pais', 'Idioma',
+                  'Presupuesto', 'Ganancia', 'Generos', 'Director', 'Genero_dir', 'Casting', 'Guion', 'Montaje', 'DOP',
+                  'Resumen']
 df_films = pd.DataFrame(columns=Atributos_peli)
 
 search = tmdb.Search()
 contador = 0
 
-# Bucle que recorre las pelis de la lista hasta llegar a la ultima metida en el dataset
-
 # for index, row in islice(lista_ratings.iterrows(), 1):
 for index, row in lista_basica.iterrows():
-
-
-    # Se lanza una query a TMDB con titulo y anio para averiguar el id de la peli y datos basicos
+    print(str(index)+": "+row['Title'])
+    if row['url_peli'] in set(filmid_whitelist['url_peli']):
+        print('Esta entrando en la Whitelist')
+        tmdb_type = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Type'].values[0]
+        tmdb_id = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Id'].values[0]
+    else:
+        tmdb_type, tmdb_id = get_tmdbId(row['url_peli'])
 
     try:
-        response = search.movie(query=row['Title'], year=row['Year'])
-        tipo = ""
-        hace_match = 0
-        ## Pruebo match exacto en cine
-        for opciones in response['results']:
-            if row['Title'] == opciones['title']:
-                hace_match = 1
-                id_peli = opciones['id']
-                titulo = row['Title']
-                votos = row['Review']
-                tipo = "cine"
-                break
-
-        if hace_match == 0:
-            ## Pruebo match exacto en tv
-            responsetv = search.tv(query=row['Title'], year=row['Year'])
-            for opciones in responsetv['results']:
-                if row['Title'] == opciones['name']:
-                    if opciones['backdrop_path'] is None:
-                        break
-                    hace_match = 1
-                    print('Hace match exacto en tv: ',row['Title'])
-                    id_peli = opciones['id']
-                    titulo = row['Title']
-                    votos = row['Review']
-                    tipo = "tv"
-                    break
-
-        if hace_match == 0:
-            ## Pruebo match parcial en cine
-            try:
-                id_peli = response['results'][0]['id']
-                print('Hace match parcial en cine: ', row['Title'])
-            except:
-                print('Pelicula no encontrada: '+row['Title'])
-            titulo = row['Title']
+        if tmdb_type == 'movie':
+            movie = tmdb.Movies(tmdb_id)
+            movieInfo = movie.info()
             votos = row['Review']
-            tipo = "cine"
+            url_peli = row['url_peli']
+            id_peli = tmdb_id
+            titulo = movieInfo['title']
+            popularidad = movieInfo['popularity']
+            rating = movieInfo['vote_average']
+            fecha = movieInfo['release_date']
+            duracion = movieInfo['runtime']
+            paises = movieInfo['production_countries']
+            if len(paises) > 0:
+                pais = paises[0]['name']
+            else:
+                pais = ''
+            idioma = movieInfo['original_language']
+            presupuesto = movieInfo['budget']
+            ganancia = movieInfo['revenue']
+            resumen = movieInfo['overview']
+            generos = []
+            for dic in movieInfo['genres']:
+                generos.append(dic['name'])
 
+            director = []
+            director_genre = []
+            guion = []
+            montaje = []
+            dop = []
+            casting = []
 
-            # Nueva consulta a TMDB para sacar detalles de la pelicula
-        generos = []
-        ## Si la película está en la lista blanca, cojo el id manualmente ###
-        if whitelist.isin([row['Title'], row['Year']]).any().all():
-            id_peli=filmid_whitelist.loc[(filmid_whitelist['Title'] == row['Title']) & (filmid_whitelist['Year'] == row['Year']),'Id'].item()
-            tipo = filmid_whitelist.loc[(filmid_whitelist['Title'] == row['Title']) & (filmid_whitelist['Year'] == row['Year']),'Type'].item()
-            print(row['Title']+' - Pelicula de la lista blanca con id: '+str(id_peli))
-        #####################################################################
-        if tipo == "cine":
-            movie = tmdb.Movies(id_peli)
-            response = movie.info()
-            presupuesto = response['budget']
-            ganancia = response['revenue']
-            duracion = response['runtime']
-        else:
-            movie = tmdb.TV(id_peli)
-            response = movie.info()
-            presupuesto = 0
-            ganancia = 0
-            duracion = 0
+            creditos = movie.credits()
+            for dic in creditos['crew']:
+                if dic['job'] == 'Director':
+                    director.append(dic['name'])
+                    director_genre.append(dic['gender'])
+                if dic['job'] == 'Screenplay':
+                    guion.append(dic['name'])
+                if dic['job'] == 'Editor':
+                    montaje.append(dic['name'])
+                if dic['job'] == 'Director of Photography':
+                    dop.append(dic['name'])
 
-        director = []
-        guion = []
-        dop = []
-        montaje = []
-        casting = []
+            for dic in creditos['cast']:
+                casting.append(dic['name'])
 
-        response = movie.info()
-        #fecha = response['release_date']
-        fecha = row['Year']
-        resumen = response['overview']
-        popularidad = response['popularity']
-        rating = response['vote_average']
-        if tipo == 'tv':
+            # if 1 in director_genre and 2 in director_genre:  # "Directores de ambos generos"
+            #     genero_dir = 3
+            # elif 2 in director_genre:  # "Director hombre"
+            #     genero_dir = 2
+            # elif 2 in director_genre:  # "Directora mujer"
+            #     genero_dir = 1
+            # else:  # "Género desconocido"
+            #     genero_dir = 0
+
+            lista_peli = [votos, url_peli, id_peli, titulo, popularidad, rating, fecha, duracion, pais, idioma,
+                          presupuesto, ganancia, generos, director, director_genre, casting, guion, montaje, dop, resumen]
+
+        if tmdb_type == 'tv':
+            movie = tmdb.TV(tmdb_id)
+            movieInfo = movie.info()
+            votos = row['Review']
+            url_peli = row['url_peli']
+            id_peli = tmdb_id
+            titulo = movieInfo['name']
+            popularidad = movieInfo['popularity']
+            rating = movieInfo['vote_average']
+            fecha = movieInfo['first_air_date']
             try:
-                director = "['"+response['created_by'][0]['name']+"']"
+                duracion = movieInfo['number_of_episodes']*movieInfo['episode_run_time'][0]
             except IndexError:
-                director = []
-        for dic in response['genres']:
-            generos.append(dic['name'])
+                duracion = ''
+            paises = movieInfo['production_countries']
+            if len(paises) > 0:
+                pais = paises[0]['name']
+            else:
+                pais = ''
+            idioma = movieInfo['original_language']
+            presupuesto = ''
+            ganancia = ''
+            resumen = movieInfo['overview']
+            generos = []
+            for dic in movieInfo['genres']:
+                generos.append(dic['name'])
 
-        if len(response['production_countries']) > 0:
-            pais = response['production_countries'][0]['name']
-        else:
-            pais = []
-        if len(response['spoken_languages']) > 0:
-            idioma = response['spoken_languages'][0]['name']
-        else:
-            idioma = []
+            director = []
+            director_genre = []
+            guion = []
+            montaje = []
+            dop = []
+            casting = []
+
+            creditos = movie.credits()
+            for dic in creditos['crew']:
+                if dic['job'] == 'Director':
+                    director.append(dic['name'])
+                    director_genre.append(dic['gender'])
+                if dic['job'] == 'Screenplay':
+                    guion.append(dic['name'])
+                if dic['job'] == 'Editor':
+                    montaje.append(dic['name'])
+                if dic['job'] == 'Director of Photography':
+                    dop.append(dic['name'])
+
+            if len(director) < 1:
+                try:
+                    director.append(movieInfo['created_by'][0]['name'])
+                    director_genre.append(movieInfo['created_by'][0]['gender'])
+                except IndexError:
+                    director = []
 
 
+            for dic in creditos['cast']:
+                casting.append(dic['name'])
+
+            # if 1 in director_genre and 2 in director_genre:  # "Directores de ambos generos"
+            #     genero_dir = 3
+            # elif 2 in director_genre:  # "Director hombre"
+            #     genero_dir = 2
+            # elif 2 in director_genre:  # "Directora mujer"
+            #     genero_dir = 1
+            # else:  # "Género desconocido"
+            #     genero_dir = 0
+
+            lista_peli = [votos, url_peli, id_peli, titulo, popularidad, rating, fecha, duracion, pais, idioma,
+                          presupuesto, ganancia, generos, director, director_genre, casting, guion, montaje, dop, resumen]
 
 
-            # Nueva consulta a TMDB para sacar detalles del crew y del reparto
+        tamanioDF = len(df_films)
+        df_films.loc[tamanioDF] = lista_peli
 
-        response = movie.credits()
-        for dic in response['crew']:
-            if dic['job'] == 'Director':
-                director.append(dic['name'])
-            if dic['job'] == 'Screenplay':
-                guion.append(dic['name'])
-            if dic['job'] == 'Editor':
-                montaje.append(dic['name'])
-            if dic['job'] == 'Director of Photography':
-                dop.append(dic['name'])
+    except Exception as e:
+        print("Error en el procesado de: "+row['Title'])
+        errores.append(row['Title'])
+        print(e)
 
-        for dic in response['cast']:
-            casting.append(dic['name'])
 
-        lista_peli = [votos, id_peli, titulo, popularidad, rating, fecha, duracion, pais, idioma,
-                          presupuesto, ganancia, generos, director, casting, guion, montaje, dop, resumen]
+if actualiza == True:
+    pd.concat([lista_con_id, df_films]).to_csv(dataset_vprevia, sep=';', index=False)
+    pd.concat([lista_con_id, df_films]).to_csv(dataset_pbi, sep=';', index=False)
+else:
+    df_films.to_csv(dataset_vprevia, sep=';', index=False)
+    df_films.to_csv(dataset_pbi, sep=';', index=False)
 
-        df_tamanio = len(df_films)
-        df_films.loc[df_tamanio] = lista_peli
-
-    except UnicodeEncodeError:
-        print("Error en el nombre")
-
-df_films.to_csv('dataset_topfilmtuiter.csv', sep=';', index=False)
-
+print('Errores:')
+print(errores)
 print('FIN')
-

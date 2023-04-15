@@ -1,6 +1,6 @@
 # Script 01
 try:
-  exec(open("ParticipantesFinales.py").read())
+  exec(open("ParticipantesFinalesTFT.py").read())
 except:
   print("Ha ocurrido un error en ParticipantesFinales")
 else:
@@ -16,8 +16,16 @@ else:
 
 # Script 03
 try:
-  exec(open("createDataset.py").read())
+  exec(open("createDatasetTFT.py").read())
 except:
   print("Ha ocurrido un error en createDataset")
 else:
   print("Ejecución correcta de createDataset")
+
+# Script 04
+try:
+  exec(open("TopFilmTinder.py").read())
+except:
+  print("Ha ocurrido un error en TopFilmTinder")
+else:
+  print("Ejecución correcta de TopFilmTinder")
