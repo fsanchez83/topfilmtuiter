@@ -16,7 +16,7 @@ lista_stats_base = dataConfig['Resultados']['resultados_base']+id_lista+'/Proces
 lista_stats_base_lb = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_lb_bruto.csv'
 lista_usrs = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/usuarios'+id_lista+'.csv'
 
-def get_films(usuario, nombre):
+def get_films(usuario, nombre, NmaxPelis):
     url = 'https://letterboxd.com/' + usuario + '/list/' + nombre + '/detail'
     ## URL para pruebas previas al TFTdescubrimientos
     #url = 'https://letterboxd.com/danielquinn/list/tft1919/detail/'
@@ -27,7 +27,7 @@ def get_films(usuario, nombre):
 
     lista_films = []
     posicion = 0
-    for i in lista_pelis:
+    for i in lista_pelis[:NmaxPelis]:
         lista_att = i.find(class_="headline-2 prettify")
         lista_numerada = lista_att.find(class_="list-number")
         url_peli = i.find('a')['href']
@@ -45,20 +45,23 @@ def get_films(usuario, nombre):
 
 def calcula_puntos(pos):
     # ASIGNAR PUNTOS SEGUN EL ORDEN
-    # 1ª: 5 puntos,
-    # 2ª - 4ª: 4 pts
-    # 5 - 9: 3  pts
-    # 10 - 16: 2 pts
-    # 17 - 25: 1 punto
+    # 1ª: 6 puntos,
+    # 2ª - 5ª: 5 pts
+    # 6 - 10: 4  pts
+    # 11 - 15: 3 pts
+    # 16 - 20: 2 pts
+    # 21 - 25: 1 punto
 
     pos = int(pos)
     if pos == 1:
+        pts = 6
+    elif pos < 6:
         pts = 5
-    elif pos < 5:
+    elif pos < 11:
         pts = 4
-    elif pos < 10:
+    elif pos < 16:
         pts = 3
-    elif pos < 17:
+    elif pos < 21:
         pts = 2
     elif pos < 26:
         pts = 1
@@ -82,7 +85,7 @@ if __name__ == '__main__':
     for i in range(len(df_usuarios)):
 
         print(df_usuarios.iloc[i]['Usuarios'])
-        lista_films,url = get_films(df_usuarios.iloc[i]['Usuarios'], df_usuarios.iloc[i]['Lista'])
+        lista_films,url = get_films(df_usuarios.iloc[i]['Usuarios'], df_usuarios.iloc[i]['Lista'], 25)
         if len(lista_films) > 0:
             contador += 1
             print(url)
@@ -102,7 +105,6 @@ if __name__ == '__main__':
         columns={"Puntos": "Puntos", "Titulo": "Menciones"}).sort_values(
         ['Puntos', 'Menciones'], ascending=[False, False])
 
-    print(resultado_final)
     resultado_final_lb = resultado_final.reset_index(level='url_peli')
     resultado_final_lb = resultado_final_lb.astype({'Puntos': 'str', 'Menciones': 'str'})
     resultado_final_lb["Review"] = resultado_final_lb["Puntos"] + " puntos con " + resultado_final_lb[
@@ -115,3 +117,4 @@ if __name__ == '__main__':
     resultado_final = resultado_final.rename_axis(index={'Titulo': 'Title', "Anio": "Year"})
     resultado_final = resultado_final.drop(['Menciones'], axis=1)
     resultado_final.to_csv(lista_stats_base)
+    print(resultado_final)
