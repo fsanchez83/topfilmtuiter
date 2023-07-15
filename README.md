@@ -8,8 +8,9 @@ El conjunto del proyecto puede estructurarse de la siguiente manera, correspondi
 2. Procesamiento de resultados (Procesamiento)
     1. Recolección de usuarios participantes.
     2. Procesamiento de las listas.
-    3. Enriquecimiento de los datos.
-    4. TopFilmTinder.
+    3. [OPCIONAL] Validación de películas.
+    4. Enriquecimiento de los datos.
+    5. TopFilmTinder.
 3. Resultados de cada edición (Resultados)
 4. Explotación de los datos con Power BI (PBI)
 5. Actividad paralela: quiniela (Quiniela)
@@ -55,6 +56,15 @@ Se generan como salida dos archivos csv:
 - Lista_votaciones_IDLISTA.csv. Listado con todas las listas que se computan concatenadas, manteniendo la posición en cada lista individual y la puntuación correspondiente.
 - Lista_votaciones_stats_lb.csv. Lista agregada, sumando los puntos de todas las listas computadas y ordenada de mayor a menor puntuación total. Este csv se puede importar en Letterboxd como una lista. La puntuación total de la película se guarda en la review.
 - Lista_votaciones_stats_IDLISTA.csv. Lista agregada, sumando los puntos de todas las listas computadas y ordenada de mayor a menor puntuación total sin formateo para importar en Letterboxd, pero más usable para utilizar en el siguiente paso. Incluye una columna con la URI diferencial en Letterboxd de cada película.
+
+### 2.3. Validación de películas
+
+Este módulo solo existe en las ediciones que requieran de una validación, como por ejemplo en TFTdescubrimientos, donde
+hay que descartas aquellas películas con 1000 o más visualizaciones.
+
+Este módulo regenera los csv previos (entran con el sufijo _bruto y salen sin él) para dejar solo las películas válidas para computar
+en el resultado final. Es importante que este módulo se ejecute después del procesamiento de las listas para mantener la
+puntuación original y no provocar desplazamientos al eliminar películas no autorizadas.
 
 
 ### 2.3. Enriquecimiento de los datos.
