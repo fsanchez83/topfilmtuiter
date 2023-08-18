@@ -75,10 +75,12 @@ for index, row in lista_basica.iterrows():
     datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
 
+lista_descartes = lista_info_LB[lista_info_LB['nviews'] > 999]
 lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['nviews'] > 999].index)
 
 print(lista_info_LB)
 print('Errores:', errores)
+print(lista_descartes)
 
 # Dejamos los resultados filtrados en los csv limpios
 
@@ -98,6 +100,6 @@ lista_info_LB.to_csv(lista_stats_base, index=False)
 df_lista_completa.to_csv(lista_completa, index=False)
 df_lista_completa_pbi.to_csv(lista_completa_pbi, index=False)
 df_lista_stats_base_lb.to_csv(lista_stats_base_lb, index=False)
-
+lista_descartes.to_csv('descartes.csv', index=False)
 
 print('FIN')

@@ -32,7 +32,7 @@ else:
 
 # Script 05
 try:
-  exec(open("TopFilmTinder.py").read())
+  exec(open("TopFilmTinderCB_hib.py").read())
 except:
   print("Ha ocurrido un error en TopFilmTinder")
 else:

@@ -86,9 +86,10 @@ if __name__ == '__main__':
 
         print(df_usuarios.iloc[i]['Usuarios'])
         lista_films,url = get_films(df_usuarios.iloc[i]['Usuarios'], df_usuarios.iloc[i]['Lista'], 25)
+
         if len(lista_films) > 0:
             contador += 1
-            print(url)
+            #print(url)
         else:
             sin_lista.append(df_usuarios.iloc[i]['Usuarios'])
         lista_global.append(lista_films)
