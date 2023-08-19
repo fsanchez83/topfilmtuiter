@@ -33,12 +33,18 @@ def get_films(usuario, nombre, NmaxPelis):
         url_peli = i.find('a')['href']
         if lista_numerada is None:
             posicion = posicion + 1
-            titulo_anio = lista_att.get_text()
+            titulo = lista_att.contents[0].get_text()
+            if (len(lista_att.contents)<3):
+                anio = 0
+            else:
+                anio = lista_att.contents[2].get_text()
         else:
             posicion, titulo_anio = lista_att.get_text().split(".", 1)
-
-        titulo = titulo_anio[:-4]
-        anio = titulo_anio[-4:]
+            titulo = lista_att.contents[1].get_text()
+            if (len(lista_att.contents)<4):
+                anio = 0
+            else:
+                anio = lista_att.contents[2].get_text()
         lista_films.append([posicion, titulo, anio, url_peli, url])
     return lista_films, url
 
@@ -100,7 +106,7 @@ if __name__ == '__main__':
     df_lista['Titulo'] = df_lista['Titulo'].str.strip()
     df_lista['Puntos'] = df_lista.apply(lambda row: calcula_puntos(row['Pos']), axis=1)
     df_lista.to_csv(lista_completa)
-    df_lista.to_csv(lista_completa_pbi)
+    #df_lista.to_csv(lista_completa_pbi)
 
     resultado_final = df_lista.groupby(['Titulo', 'Anio', 'url_peli']).agg({'Puntos': 'sum', 'Titulo': 'count'}).rename(
         columns={"Puntos": "Puntos", "Titulo": "Menciones"}).sort_values(
