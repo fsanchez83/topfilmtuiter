@@ -44,7 +44,7 @@ def get_films(usuario, nombre, NmaxPelis):
             if (len(lista_att.contents)<4):
                 anio = 0
             else:
-                anio = lista_att.contents[2].get_text()
+                anio = lista_att.contents[3].get_text()
         lista_films.append([posicion, titulo, anio, url_peli, url])
     return lista_films, url
 
