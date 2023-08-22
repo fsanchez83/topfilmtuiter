@@ -76,7 +76,9 @@ for index, row in lista_basica.iterrows():
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
 
 lista_descartes = lista_info_LB[lista_info_LB['nviews'] > 999]
+lista_descartes = lista_info_LB[lista_info_LB['Year'] > 2021]
 lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['nviews'] > 999].index)
+lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > 2021].index)
 
 print(lista_info_LB)
 print('Errores:', errores)
