@@ -24,7 +24,6 @@ id_lista = dataConfig['General']['id_lista']
 filmid_whitelist = pd.read_csv('filmid_whitelist_tft')
 
 lista_completa_bruto = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_'+id_lista+'_bruto.csv'
-lista_completa_pbi_bruto = dataConfig['Resultados']['base_pbi']+'listas_votaciones/Lista_votaciones_'+id_lista+'_bruto.csv'
 lista_stats_base_bruto = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_'+id_lista+'_bruto.csv'
 lista_stats_base_lb_bruto = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_lb_bruto.csv'
 
@@ -76,7 +75,9 @@ for index, row in lista_basica.iterrows():
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
 
 lista_descartes = lista_info_LB[lista_info_LB['nviews'] > 999]
+lista_descartes = lista_info_LB[lista_info_LB['Year'] > 2021]
 lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['nviews'] > 999].index)
+lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > 2021].index)
 
 print(lista_info_LB)
 print('Errores:', errores)
@@ -88,7 +89,7 @@ df_lista_completa_bruto = pd.read_csv(lista_completa_bruto)
 df_lista_completa = df_lista_completa_bruto[df_lista_completa_bruto['url_peli'].isin(lista_info_LB['url_peli'])]
 df_lista_completa = df_lista_completa.rename(columns={'Unnamed: 0': ''})
 
-df_lista_completa_pbi_bruto = pd.read_csv(lista_completa_pbi_bruto)
+df_lista_completa_pbi_bruto = pd.read_csv(lista_completa_bruto)
 df_lista_completa_pbi = df_lista_completa_pbi_bruto[df_lista_completa_pbi_bruto['url_peli'].isin(lista_info_LB['url_peli'])]
 df_lista_completa_pbi = df_lista_completa_pbi.rename(columns={'Unnamed: 0': ''})
 
