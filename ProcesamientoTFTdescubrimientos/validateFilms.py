@@ -31,6 +31,7 @@ lista_completa = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesam
 lista_completa_pbi = dataConfig['Resultados']['base_pbi']+'listas_votaciones/Lista_votaciones_'+id_lista+'.csv'
 lista_stats_base = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_'+id_lista+'.csv'
 lista_stats_base_lb = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_lb.csv'
+lista_stats_base_pbi = dataConfig['Resultados']['base_pbi']+'stats/Stats_'+id_lista+'.csv'
 
 
 pd.set_option('display.max_columns', None)
@@ -98,6 +99,7 @@ df_lista_stats_base_lb = df_lista_stats_base_lb_bruto.merge(lista_info_LB, on=['
 df_lista_stats_base_lb = df_lista_stats_base_lb.rename(columns={'Review_x': 'Review'})[df_lista_stats_base_lb_bruto.columns]
 
 lista_info_LB.to_csv(lista_stats_base, index=False)
+lista_info_LB.to_csv(lista_stats_base_pbi, index=False)
 df_lista_completa.to_csv(lista_completa, index=False)
 df_lista_completa_pbi.to_csv(lista_completa_pbi, index=False)
 df_lista_stats_base_lb.to_csv(lista_stats_base_lb, index=False)
