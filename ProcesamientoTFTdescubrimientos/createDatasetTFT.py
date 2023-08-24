@@ -70,7 +70,7 @@ for index, row in lista_basica.iterrows():
             idioma = movieInfo['original_language']
             presupuesto = movieInfo['budget']
             ganancia = movieInfo['revenue']
-            resumen = movieInfo['overview']
+            resumen = movieInfo['overview'].replace('\n', ' ')
             generos = []
             for dic in movieInfo['genres']:
                 generos.append(dic['name'])
@@ -131,7 +131,7 @@ for index, row in lista_basica.iterrows():
             idioma = movieInfo['original_language']
             presupuesto = ''
             ganancia = ''
-            resumen = movieInfo['overview']
+            resumen = movieInfo['overview'].replace('\n', ' ')
             generos = []
             for dic in movieInfo['genres']:
                 generos.append(dic['name'])
