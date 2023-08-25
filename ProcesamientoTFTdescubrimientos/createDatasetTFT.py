@@ -70,7 +70,7 @@ for index, row in lista_basica.iterrows():
             idioma = movieInfo['original_language']
             presupuesto = movieInfo['budget']
             ganancia = movieInfo['revenue']
-            resumen = movieInfo['overview'].replace('\n', ' ')
+            resumen = movieInfo['overview'].replace('\n', ' ').replace('\r', ' ')
             generos = []
             for dic in movieInfo['genres']:
                 generos.append(dic['name'])
@@ -131,7 +131,7 @@ for index, row in lista_basica.iterrows():
             idioma = movieInfo['original_language']
             presupuesto = ''
             ganancia = ''
-            resumen = movieInfo['overview'].replace('\n', ' ')
+            resumen = movieInfo['overview'].replace('\n', ' ').replace('\r', ' ')
             generos = []
             for dic in movieInfo['genres']:
                 generos.append(dic['name'])
@@ -177,7 +177,6 @@ for index, row in lista_basica.iterrows():
 
             lista_peli = [votos, url_peli, id_peli, titulo, popularidad, rating, fecha, duracion, pais, idioma,
                           presupuesto, ganancia, generos, director, director_genre, casting, guion, montaje, dop, resumen]
-
 
         tamanioDF = len(df_films)
         df_films.loc[tamanioDF] = lista_peli
