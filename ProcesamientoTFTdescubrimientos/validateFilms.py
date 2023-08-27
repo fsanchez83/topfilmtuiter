@@ -75,8 +75,8 @@ for index, row in lista_basica.iterrows():
     datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
 
-lista_descartes = lista_info_LB[lista_info_LB['nviews'] > 999]
-lista_descartes = lista_info_LB[lista_info_LB['Year'] > 2021]
+lista_descartes = lista_info_LB[(lista_info_LB['Year'] > 2021) | (lista_info_LB['nviews'] > 999)]
+
 lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['nviews'] > 999].index)
 lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > 2021].index)
 
