@@ -4,13 +4,14 @@ import time
 import yaml
 from yaml.loader import SafeLoader
 
-"""
-client = tweepy.Client(bearer_token='PONER AQUI EL BEARER TOKEN', wait_on_rate_limit='True')
 
-"""
 
-with open('../secrets.cfg') as f:
+with open('../secrets_propio.cfg') as f:
     data = yaml.load(f, Loader=SafeLoader)
+
+
+client = tweepy.Client(bearer_token=data['Twitter']['bearer_token'], wait_on_rate_limit='True')
+
 
 consumer_key = data['Twitter']['consumer_key']
 consumer_secret = data['Twitter']['consumer_secret']
@@ -21,12 +22,11 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth, wait_on_rate_limit=True)
-
 # Bucle que recupera todos los usuarios seguidos por los elegidos en el array y los guarda en lista
 
 
 #user_ref=['paco_sanz','Danielquinn_', 'Aeneas_SVS', 'A_Karerina','Miguez_Diez','alicia_castilla']
-user_ref=['marioquema','will_llermo','alicia_castilla','straubbhuillet','paco_sanz','Aeneas_SVS','braaisv','JuanJavato_24','Miguez_Diez','Danielquinn_']
+user_ref=['marioquema','will_llermo','alicia_castilla','straubbhuillet','paco_sanz','Aeneas_SVS','braaisv','JuanJavato_24','follybololey','Danielquinn_', '@palomadato', '@Ninotchka91', 'Andresttttmmmm']
 #user_ref=['topfilmtuiter']
 #user_ref=['marioquema']
 
@@ -58,6 +58,8 @@ lista_amigos=[]
 for usuarios in user_ref:
     print(usuarios)
     id_user = api.get_user(screen_name=usuarios)
+    print(id_user)
+    users_ids = api.get_friend_ids(user_id=id_user.id)
     try:
         users_ids = api.get_friend_ids(user_id=id_user.id)
     except:
@@ -71,5 +73,5 @@ for usuarios in user_ref:
 df_participantes=pd.DataFrame(data=lista_amigos)
 print(df_participantes)
 participantes=df_participantes.value_counts()
-participantes.to_csv('Seguidos10_15_04_2023.csv',sep=';')
+participantes.to_csv('SeguidosMiembros_08_08_2023.csv',sep=';')
 
