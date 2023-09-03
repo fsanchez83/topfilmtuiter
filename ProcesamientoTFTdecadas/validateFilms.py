@@ -5,7 +5,12 @@ Created on 05 abr. 2023
 '''
 # -*- coding: utf-8 -*-
 
+import tmdbsimple as tmdb
 import pandas as pd
+import sys
+import os.path
+import requests as rq
+from bs4 import BeautifulSoup
 import yaml
 from yaml.loader import SafeLoader
 
@@ -32,15 +37,54 @@ lista_stats_base_pbi = dataConfig['Resultados']['base_pbi']+'stats/Stats_'+id_li
 pd.set_option('display.max_columns', None)
 
 lista_basica = pd.read_csv(lista_stats_base_bruto)
+lista_info_LB = pd.DataFrame(columns=['Title', 'Year', 'url_peli', 'Review', 'tmdb_type', 'tmdb_id', 'nviews'])
+
+errores=[]
+
+def get_LBData(url_film):
+    url_base = 'https://letterboxd.com'
+    url = url_base + url_film
+    url_stats = url_base + '/esi' + url_film + 'stats/'
+    page = rq.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    try:
+        literal = soup.find_all("a", {"data-track-action": "TMDb"})[0].get('href').split('themoviedb.org/')[1].split(
+            '/')
+        tmdb_type = literal[0]
+        tmdb_id = literal[1]
+    except:
+        tmdb_type = 0
+        tmdb_id = 0
+        errores.append(url_film)
+
+    pagestats = rq.get(url_stats)
+    soupstats = BeautifulSoup(pagestats.content, 'html.parser')
+    nviews = int(soupstats.find('a', class_='has-icon icon-watched icon-16 tooltip').get('title').split()[2].replace(',',''))
+    return tmdb_type, tmdb_id, nviews
+
+# for index, row in islice(lista_ratings.iterrows(), 1):
+for index, row in lista_basica.iterrows():
+    print(str(index)+": "+row['Title'])
+    if row['url_peli'] in set(filmid_whitelist['url_peli']):
+        print('Esta entrando en la Whitelist')
+        tmdb_type = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Type'].values[0]
+        tmdb_id = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Id'].values[0]
+    else:
+        tmdb_type, tmdb_id, nviews = get_LBData(row['url_peli'])
+
+    datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
+    lista_info_LB.loc[len(lista_info_LB)] = datos_peli
+
 
 # Lista de peliculas que no cumplen los requisitos
-lista_descartes = lista_basica[(lista_basica['Year'] > dataConfig['Decadas']['anno_fin']) | (lista_basica['Year'] < dataConfig['Decadas']['anno_ini'])]
+lista_descartes = lista_info_LB[(lista_info_LB['Year'] > dataConfig['Decadas']['anno_fin']) | (lista_info_LB['Year'] < dataConfig['Decadas']['anno_ini'])]
 
 # Descartar peliculas que no cumplen los requisitos
-lista_info_LB_1 = lista_basica.drop(lista_basica[lista_basica['Year'] < dataConfig['Decadas']['anno_ini']].index)
+lista_info_LB_1 = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] < dataConfig['Decadas']['anno_ini']].index)
 lista_info_LB = lista_info_LB_1.drop(lista_info_LB_1[lista_info_LB_1['Year'] > dataConfig['Decadas']['anno_fin']].index)
 
 print(lista_info_LB)
+print('Errores:', errores)
 print(lista_descartes)
 
 # Dejamos los resultados filtrados en los csv limpios
