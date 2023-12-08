@@ -40,8 +40,6 @@ def get_users_and_lists():
             WebDriverWait(driver, 15).until(
                 EC.element_to_be_clickable(consent_button_locator)).click()
 
-            print('Todo bien hasta aquí')
-
             # Esperar a que aparezca el enlace "Show all" y hacer clic en él
             show_all_link_locator = (By.ID, 'load-all-comments')
             WebDriverWait(driver, 15).until(
@@ -62,27 +60,32 @@ def get_users_and_lists():
 
             if comment_list:
                 for comment_item in comment_list.find_all('li', class_='comment'):
-                    # Obtener y mostrar el nombre del usuario
-                    name_person_value_link = comment_item.find(
-                        class_='name').find('a')
-                    if name_person_value_link:
-                        name_person_value = name_person_value_link.get(
-                            'href').replace("/", "")
+                    # Verificar si la clase no contiene 'deleted' y prosigue la ejecución si es el caso
+                    if 'deleted' not in comment_item.get('class', ''):
+                        # Obtener y mostrar el nombre del usuario
+                        name_person_value_link = comment_item.find(
+                            class_='name').find('a')
+                        if name_person_value_link:
+                            name_person_value = name_person_value_link.get(
+                                'href').replace("/", "")
 
-                    # Encontrar el enlace dentro del párrafo (<p>) del comentario
-                    list_link = comment_item.find('p').find('a')
+                        # Encontrar el enlace dentro del párrafo (<p>) del comentario
+                        list_link = comment_item.find('p').find('a')
 
-                    # Obtener y mostrar el atributo href del enlace
-                    if list_link:
-                        list_value = list_link.get('href')
-                    csv_writer.writerow([name_person_value, list_value])
-                    # print('Participante: ' + str(data_person_value) +
-                    #      ', lista: ' + str(href_value))
+                        # Obtener y mostrar el atributo href del enlace
+                        if list_link:
+                            list_value = list_link.get('href')
+                        csv_writer.writerow([name_person_value, list_value])
+                        # print('Participante: ' + str(data_person_value) +
+                        #      ', lista: ' + str(href_value))
                 print(
                     f'Los datos se han guardado en el archivo CSV: {csv_file_path}')
 
             else:
                 print('No se encontró la lista de comentarios en la página.')
+
+    except:
+        print('Ha ocurrido un error al intentar leer la lista de usuarios desde Letterboxd')
 
     finally:
         # Cerrar el navegador al finalizar
