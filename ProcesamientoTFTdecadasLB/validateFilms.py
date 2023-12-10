@@ -17,9 +17,6 @@ from yaml.loader import SafeLoader
 with open('../config.cfg') as f:
     dataConfig = yaml.load(f, Loader=SafeLoader)
 
-with open('../secrets.cfg') as f:
-    data = yaml.load(f, Loader=SafeLoader)
-
 id_lista = dataConfig['General']['id_lista']
 filmid_whitelist = pd.read_csv('filmid_whitelist_tft')
 
@@ -75,10 +72,10 @@ for index, row in lista_basica.iterrows():
     datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
 
-lista_descartes = lista_info_LB[(lista_info_LB['Year'] > 2021) | (lista_info_LB['nviews'] > 999)]
+lista_descartes = lista_info_LB[(lista_info_LB['Year'] > 2019) | (lista_info_LB['Year'] < 2010)]
 
-lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['nviews'] > 999].index)
-lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > 2021].index)
+lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > 2019].index)
+lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] < 2010].index)
 
 print(lista_info_LB)
 print('Errores:', errores)

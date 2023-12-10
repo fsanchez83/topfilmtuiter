@@ -1,6 +1,6 @@
 # Script 01
 try:
-  exec(open("ParticipantesFinalesTFT.py").read())
+  exec(open("ParticipantesFinalesTFTLB.py").read())
 except:
   print("Ha ocurrido un error en ParticipantesFinales")
 else:

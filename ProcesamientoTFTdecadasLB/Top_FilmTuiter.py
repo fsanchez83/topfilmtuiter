@@ -14,12 +14,17 @@ lista_completa = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesam
 lista_completa_pbi = dataConfig['Resultados']['base_pbi']+'listas_votaciones/Lista_votaciones_'+id_lista+'_bruto.csv'
 lista_stats_base = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_'+id_lista+'_bruto.csv'
 lista_stats_base_lb = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_lb_bruto.csv'
-lista_usrs = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/usuarios'+id_lista+'.csv'
+lista_usrs = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/usuarios_comentarios.csv'
 
-def get_films(usuario, nombre, NmaxPelis):
-    url = 'https://letterboxd.com/' + usuario + '/list/' + nombre + '/detail'
+def get_films(url_lista, NmaxPelis):
+    #url = 'https://letterboxd.com/' + usuario + '/list/' + nombre + '/detail'
+    url = url_lista
     ## URL para pruebas previas al TFTdescubrimientos
     #url = 'https://letterboxd.com/danielquinn/list/tft1919/detail/'
+    request = rq.get(url)
+    request.encoding = "utf-8"
+    response = rq.head(url, allow_redirects=True)
+    url = response.url+'detail'
     request = rq.get(url)
     request.encoding = "utf-8"
     bs_page = BeautifulSoup(request.content, 'html.parser')
@@ -79,9 +84,7 @@ def calcula_puntos(pos):
 # Inicio del script
 if __name__ == '__main__':
 
-    df_usuarios = pd.read_csv(lista_usrs, sep=';')
-    nombre_lista_defecto = id_lista
-    df_usuarios['Lista'] = df_usuarios['Lista'].fillna(nombre_lista_defecto)
+    df_usuarios = pd.read_csv(lista_usrs).drop_duplicates()
     print(df_usuarios)
 
     sin_lista = []
@@ -90,8 +93,8 @@ if __name__ == '__main__':
 
     for i in range(len(df_usuarios)):
 
-        print(df_usuarios.iloc[i]['Usuarios'])
-        lista_films,url = get_films(df_usuarios.iloc[i]['Usuarios'], df_usuarios.iloc[i]['Lista'], 25)
+        print(df_usuarios.iloc[i]['Participante'])
+        lista_films,url = get_films(df_usuarios.iloc[i]['Lista'], 25)
 
         if len(lista_films) > 0:
             contador += 1

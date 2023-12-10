@@ -13,7 +13,7 @@ import time
 def get_users_and_lists():
 
     # Crear un archivo CSV
-    csv_file_path = './Resultados/ResultadosTFTDecadasLB/usuarios_comentarios.csv'
+    csv_file_path = '../Resultados/Resultadostft2010/Procesamiento/usuarios_comentarios.csv'
 
     # Guardamos la URL de la lista de inscripción
     url = 'https://letterboxd.com/topfilmtuiter/list/inscripcion-top-filmtuiter-tft2010s/detail/'
