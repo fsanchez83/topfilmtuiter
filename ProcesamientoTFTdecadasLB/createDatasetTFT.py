@@ -9,6 +9,7 @@ import tmdbsimple as tmdb
 import pandas as pd
 import os.path
 import yaml
+import sys
 from yaml.loader import SafeLoader
 
 with open('../config.cfg') as f:
@@ -62,11 +63,16 @@ for index, row in lista_basica.iterrows():
             rating = movieInfo['vote_average']
             fecha = movieInfo['release_date']
             duracion = movieInfo['runtime']
-            paises = movieInfo['production_countries']
-            if len(paises) > 0:
-                pais = paises[0]['name']
-            else:
-                pais = ''
+            productoras = movieInfo['production_companies']
+            for paises in productoras:
+                if len(paises['origin_country']) > 0:
+                    pais = paises['origin_country']
+                    break
+            if len(pais)==0:
+                if len(paises['production_countries']) > 0:
+                    pais = movieInfo['production_countries'][0]['iso_3166_1']
+                else:
+                    pais = ''
             idioma = movieInfo['original_language']
             presupuesto = movieInfo['budget']
             ganancia = movieInfo['revenue']
