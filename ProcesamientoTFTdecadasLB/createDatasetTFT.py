@@ -64,12 +64,13 @@ for index, row in lista_basica.iterrows():
             fecha = movieInfo['release_date']
             duracion = movieInfo['runtime']
             productoras = movieInfo['production_companies']
+            pais = ''
             for paises in productoras:
                 if len(paises['origin_country']) > 0:
                     pais = paises['origin_country']
                     break
             if len(pais)==0:
-                if len(paises['production_countries']) > 0:
+                if len(movieInfo['production_countries']) > 0:
                     pais = movieInfo['production_countries'][0]['iso_3166_1']
                 else:
                     pais = ''
