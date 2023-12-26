@@ -63,18 +63,49 @@ for index, row in lista_basica.iterrows():
             rating = movieInfo['vote_average']
             fecha = movieInfo['release_date']
             duracion = movieInfo['runtime']
-            productoras = movieInfo['production_companies']
-            pais = ''
-            for paises in productoras:
-                if len(paises['origin_country']) > 0:
-                    pais = paises['origin_country']
-                    break
-            if len(pais)==0:
-                if len(movieInfo['production_countries']) > 0:
-                    pais = movieInfo['production_countries'][0]['iso_3166_1']
-                else:
-                    pais = ''
             idioma = movieInfo['original_language']
+            productoras = movieInfo['production_companies']
+            #productoras = movieInfo['production_countries']
+            pais = ''
+            paises=[]
+            for paises_prod in productoras:
+                if len(paises_prod['origin_country']) > 0:
+                    paises.append(paises_prod['origin_country'])
+            if ((idioma == 'en') & ('US' in paises)):
+                pais = 'US'
+            elif ((idioma == 'en') & ('GB' in paises)):
+                pais = 'GB'
+            elif idioma.upper() in paises:
+                pais = idioma.upper()
+            else:
+                if len(paises) > 0:
+                    pais = paises[0]
+                else:
+                    if len(movieInfo['production_countries']) > 0:
+                        pais = movieInfo['production_countries'][0]['iso_3166_1']
+                    else:
+                        pais = ''
+
+            # for paises in productoras:
+            #     if len(paises['origin_country']) > 0:
+            #         pais = paises['origin_country']
+            #         break
+            # if len(pais)==0:
+            #     if len(movieInfo['production_countries']) > 0:
+            #         pais = movieInfo['production_countries'][0]['iso_3166_1']
+            #     else:
+            #         pais = ''
+            # print(pais)
+            # sys.exit()
+            # for paises in productoras:
+            #     if len(paises['iso_3166_1']) > 0:
+            #         pais = paises['iso_3166_1']
+            #         break
+            # if len(pais)==0:
+            #     if len(movieInfo['production_companies']) > 0:
+            #         pais = movieInfo['production_companies'][0]['origin_country']
+            #     else:
+            #         pais = ''
             presupuesto = movieInfo['budget']
             ganancia = movieInfo['revenue']
             resumen = movieInfo['overview'].replace('\n', ' ').replace('\r', ' ')
