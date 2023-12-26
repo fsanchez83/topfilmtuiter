@@ -62,12 +62,11 @@ def get_LBData(url_film):
 # for index, row in islice(lista_ratings.iterrows(), 1):
 for index, row in lista_basica.iterrows():
     print(str(index)+": "+row['Title'])
+    tmdb_type, tmdb_id, nviews = get_LBData(row['url_peli'])
     if row['url_peli'] in set(filmid_whitelist['url_peli']):
         print('Esta entrando en la Whitelist')
         tmdb_type = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Type'].values[0]
         tmdb_id = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Id'].values[0]
-    else:
-        tmdb_type, tmdb_id, nviews = get_LBData(row['url_peli'])
 
     datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
