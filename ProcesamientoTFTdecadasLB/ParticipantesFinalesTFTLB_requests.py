@@ -7,6 +7,7 @@ import time
 import sys
 
 ## Para escrapear una lista solo es necesario introducir el list_id_cod (ScrapComments en archivo config)
+## El codigo se encuentra buscando en el codigo fuente de la web data-report-url
 
 with open('../config.cfg') as f:
     dataConfig = yaml.load(f, Loader=SafeLoader)
