@@ -56,38 +56,57 @@ def get_person_and_list(comment_item):
     return []
 
 
-def get_comments_in_page(csv_writer, driver):
+def get_comments_in_page(driver):
     # Crear un conjunto para almacenar usuarios y listas y evitar duplicados y vacíos
     user_list_set = set()
-    # Esperar a que aparezca el enlace "Load Previous" y hacer clic en él
-    show_previous_link_locator = (By.ID, 'load-previous-comments')
-    while True:
-        try:
-            WebDriverWait(driver, 4).until(
-                EC.element_to_be_clickable(show_previous_link_locator)).click()
+    # Esperar un momento para que se carguen los comentarios
+    time.sleep(2)
+    # Obtener el contenido de la página después de cargarla dinámicamente
+    page_content = driver.page_source
 
-            # Esperar un momento para que se carguen los comentarios
-            time.sleep(2)
+    # Utilizar BeautifulSoup para analizar el contenido
+    bs_page = BeautifulSoup(page_content, 'html.parser')
 
-        except TimeoutException:
-            # Si se produce un TimeoutException, significa que el botón ya no está presente
-            # Obtener el contenido de la página después de cargarla dinámicamente
-            page_content = driver.page_source
+    # Ahora puedes buscar los comentarios y acceder a los atributos que necesitas
+    comment_list = bs_page.find(
+        'ul', class_='comment-list js-comment-list')
 
-            # Utilizar BeautifulSoup para analizar el contenido
-            bs_page = BeautifulSoup(page_content, 'html.parser')
+    # Guardamos el nombre de usuario y link de su lista en una lista de tuplas sin duplicados
+    if comment_list:
+        for comment_item in comment_list.find_all('li', class_='comment'):
+            person_and_list = get_person_and_list(comment_item)
+            if person_and_list and tuple(person_and_list) not in user_list_set:
+                user_list_set.add(tuple(person_and_list))
 
-            # Ahora puedes buscar los comentarios y acceder a los atributos que necesitas
-            comment_list = bs_page.find(
-                'ul', class_='comment-list js-comment-list')
+    return user_list_set
 
-            if comment_list:
-                for comment_item in comment_list.find_all('li', class_='comment'):
-                    person_and_list = get_person_and_list(comment_item)
-                    if person_and_list and tuple(person_and_list) not in user_list_set:
-                        csv_writer.writerow(person_and_list)
-                        user_list_set.add(tuple(person_and_list))
-            break
+
+def get_total_comments(driver):
+    # Crear un conjunto para almacenar usuarios y listas y evitar duplicados y vacíos
+    user_list_set = set()
+
+    try:
+        # Esperar a que aparezca el enlace "Show all" y hacer clic en él
+        show_all_link_locator = (By.ID, 'load-all-comments')
+        WebDriverWait(driver, 14).until(
+            EC.element_to_be_clickable(show_all_link_locator)).click()
+        user_list_set = get_comments_in_page(driver)
+
+    except TimeoutException:
+        # Si se produce un TimeoutException, significa que el botón ya no está presente
+        # Esperar a que aparezca el enlace "Load Previous" y hacer clic en él
+        show_previous_link_locator = (By.ID, 'load-previous-comments')
+        while True:
+            try:
+                WebDriverWait(driver, 4).until(
+                    EC.element_to_be_clickable(show_previous_link_locator)).click()
+
+            except TimeoutException:
+                # Si se produce un TimeoutException, significa que el botón ya no está presente
+                user_list_set = get_comments_in_page(driver)
+                break
+
+    return user_list_set
 
 
 def close_cookies_popup(driver):
@@ -120,9 +139,15 @@ def get_users_and_lists(url, csv_file_path):
             # Escribir encabezados
             csv_writer.writerow(['Participante', 'Lista'])
 
+            # Cierra el pop up para aceptar las cookies
             close_cookies_popup(driver)
 
-            get_comments_in_page(csv_writer, driver)
+            # Carga los mensajes de la lista
+            comments = get_total_comments(driver)
+
+            # Escribe los mensajes en el csv
+            for comment in comments:
+                csv_writer.writerow(comment)
 
             print(
                 f'Los datos se han guardado en el archivo CSV: {csv_file_path}')
