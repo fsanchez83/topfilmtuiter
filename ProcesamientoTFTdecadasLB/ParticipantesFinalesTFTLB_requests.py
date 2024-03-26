@@ -3,6 +3,7 @@ import yaml
 from yaml.loader import SafeLoader
 from bs4 import BeautifulSoup
 import requests as rq
+import os
 import time
 import sys
 
@@ -38,6 +39,9 @@ def get_users_and_lists(url, csv_file_path):
         except:
             continue
     csv_columns = ['Participante', 'Lista']
+
+    # Crear el directorio si no existe
+    os.makedirs(os.path.dirname(csv_file_path), exist_ok=True)
 
     with open(csv_file_path, 'w', newline='', encoding='utf-8') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=csv_columns)

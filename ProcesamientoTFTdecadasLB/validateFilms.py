@@ -17,6 +17,9 @@ from yaml.loader import SafeLoader
 with open('../config.cfg') as f:
     dataConfig = yaml.load(f, Loader=SafeLoader)
 
+anno_ini = dataConfig['Decadas']['anno_ini']
+anno_fin = dataConfig['Decadas']['anno_fin']
+
 id_lista = dataConfig['General']['id_lista']
 filmid_whitelist = pd.read_csv('filmid_whitelist_tft')
 
@@ -41,7 +44,8 @@ errores=[]
 def get_LBData(url_film):
     url_base = 'https://letterboxd.com'
     url = url_base + url_film
-    url_stats = url_base + '/esi' + url_film + 'stats/'
+    url_stats = url_base + '/csi' + url_film + 'stats/'
+    #print(url_stats)
     page = rq.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     try:
@@ -71,10 +75,10 @@ for index, row in lista_basica.iterrows():
     datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
 
-lista_descartes = lista_info_LB[(lista_info_LB['Year'] > 2019) | (lista_info_LB['Year'] < 2010)]
+lista_descartes = lista_info_LB[(lista_info_LB['Year'] > anno_fin) | (lista_info_LB['Year'] < 2010)]
 
-lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > 2019].index)
-lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] < 2010].index)
+lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > anno_fin].index)
+lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] < anno_ini].index)
 
 print(lista_info_LB)
 print('Errores:', errores)
