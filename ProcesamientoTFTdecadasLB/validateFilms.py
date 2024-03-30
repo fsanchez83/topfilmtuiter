@@ -75,7 +75,7 @@ for index, row in lista_basica.iterrows():
     datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
     lista_info_LB.loc[len(lista_info_LB)] = datos_peli
 
-lista_descartes = lista_info_LB[(lista_info_LB['Year'] > anno_fin) | (lista_info_LB['Year'] < 2010)]
+lista_descartes = lista_info_LB[(lista_info_LB['Year'] > anno_fin) | (lista_info_LB['Year'] < anno_ini)]
 
 lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > anno_fin].index)
 lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] < anno_ini].index)
@@ -97,6 +97,7 @@ df_lista_completa_pbi = df_lista_completa_pbi.rename(columns={'Unnamed: 0': ''})
 df_lista_stats_base_lb_bruto = pd.read_csv(lista_stats_base_lb_bruto)
 df_lista_stats_base_lb = df_lista_stats_base_lb_bruto.merge(lista_info_LB, on=['Title', 'Year'], how='inner')
 df_lista_stats_base_lb = df_lista_stats_base_lb.rename(columns={'Review_x': 'Review'})[df_lista_stats_base_lb_bruto.columns]
+
 
 lista_info_LB.to_csv(lista_stats_base, index=False)
 lista_info_LB.to_csv(lista_stats_base_pbi, index=False)
