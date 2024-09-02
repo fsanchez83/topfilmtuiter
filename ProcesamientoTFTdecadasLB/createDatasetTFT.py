@@ -86,47 +86,6 @@ for index, row in lista_basica.iterrows():
                     else:
                         pais = ''
 
-            ####### EXTRA SOLO PARA TFTCHINA(S) #############
-            opciones = ['CN', 'TW', 'HK']
-            pais = None
-
-            # Buscamos el primer valor que coincida con alguno de 'CN', 'TW', 'HK'
-            for p in paises:
-                if p in opciones:
-                    pais = p
-                    break
-
-            # Si no se encontró ninguno de los valores, se asigna el primer valor del array
-            if pais is None:
-                if len(paises) > 0:
-                    pais = paises[0]
-                else:
-                    if len(movieInfo['production_countries']) > 0:
-                        pais = movieInfo['production_countries'][0]['iso_3166_1']
-                    else:
-                        pais = ''
-
-
-            # for paises in productoras:
-            #     if len(paises['origin_country']) > 0:
-            #         pais = paises['origin_country']
-            #         break
-            # if len(pais)==0:
-            #     if len(movieInfo['production_countries']) > 0:
-            #         pais = movieInfo['production_countries'][0]['iso_3166_1']
-            #     else:
-            #         pais = ''
-            # print(pais)
-            # sys.exit()
-            # for paises in productoras:
-            #     if len(paises['iso_3166_1']) > 0:
-            #         pais = paises['iso_3166_1']
-            #         break
-            # if len(pais)==0:
-            #     if len(movieInfo['production_companies']) > 0:
-            #         pais = movieInfo['production_companies'][0]['origin_country']
-            #     else:
-            #         pais = ''
             presupuesto = movieInfo['budget']
             ganancia = movieInfo['revenue']
             resumen = movieInfo['overview'].replace('\n', ' ').replace('\r', ' ')
