@@ -4,6 +4,7 @@ from yaml.loader import SafeLoader
 from bs4 import BeautifulSoup
 import requests as rq
 import os
+import re
 import time
 import sys
 
@@ -34,7 +35,13 @@ def get_users_and_lists(url, csv_file_path):
     for comment_item in comment_list_items:
         try:
             username = comment_item['data-person']
-            link_comentario = comment_item.find('div', class_='comment-body').find('a')['href']
+            comment_tag = comment_item.find('div', class_='comment-body')
+            if comment_tag.find('a'):
+                link_comentario = comment_tag.find('a')['href']
+            else:
+                p_tag = comment_tag.find('p')
+                link_comentario = "https://" + re.search(r'boxd\.it/\w{5}',
+                                                         p_tag.get_text()).group(0)
             comments_data_list.append({'Participante': username, 'Lista': link_comentario})
         except:
             continue
