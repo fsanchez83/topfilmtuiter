@@ -49,7 +49,7 @@ def get_LBData(url_film):
     page = rq.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     try:
-        literal = soup.find_all("a", {"data-track-action": "TMDb"})[0].get('href').split('themoviedb.org/')[1].split(
+        literal = soup.find_all("a", {"data-track-action": "TMDB"})[0].get('href').split('themoviedb.org/')[1].split(
             '/')
         tmdb_type = literal[0]
         tmdb_id = literal[1]
