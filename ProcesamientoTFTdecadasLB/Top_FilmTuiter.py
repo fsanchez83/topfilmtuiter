@@ -94,14 +94,18 @@ if __name__ == '__main__':
     for i in range(len(df_usuarios)):
 
         print(df_usuarios.iloc[i]['Participante'])
-        lista_films,url = get_films(df_usuarios.iloc[i]['Lista'], 25)
-
-        if len(lista_films) > 0:
-            contador += 1
-            #print(url)
-        else:
-            sin_lista.append(df_usuarios.iloc[i]['Usuarios'])
-        lista_global.append(lista_films)
+        try:
+            lista_films,url = get_films(df_usuarios.iloc[i]['Lista'], 25)
+    
+            if len(lista_films) > 0:
+                contador += 1
+                #print(url)
+            else:
+                sin_lista.append(df_usuarios.iloc[i]['Usuarios'])
+            lista_global.append(lista_films)
+        except:
+            print("Lista no válida")
+            continue            
     print('Número de participantes: ', contador)
     print('Faltan: ', sin_lista)
     flat_list = [item for sublist in lista_global for item in sublist]
