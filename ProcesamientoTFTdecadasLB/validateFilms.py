@@ -45,15 +45,16 @@ def get_LBData(url_film):
     url_base = 'https://letterboxd.com'
     url = url_base + url_film
     url_stats = url_base + '/csi' + url_film + 'stats/'
-    #print(url_stats)
     page = rq.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     try:
-        literal = soup.find_all("a", {"data-track-action": "TMDb"})[0].get('href').split('themoviedb.org/')[1].split(
+        literal = soup.find_all("a", {"data-track-action": "TMDB"})[0].get(
+            'href').split('themoviedb.org/')[1].split(
             '/')
         tmdb_type = literal[0]
         tmdb_id = literal[1]
     except:
+        print('falla')
         tmdb_type = 0
         tmdb_id = 0
         errores.append(url_film)
