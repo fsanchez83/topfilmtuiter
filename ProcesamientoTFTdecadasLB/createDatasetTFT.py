@@ -42,7 +42,6 @@ Atributos_peli = ['Votos', "url_peli", "Id_peli", "Titulo", "Popularidad", 'Rati
                   'Presupuesto', 'Ganancia', 'Generos', 'Director', 'Genero_dir', 'Casting', 'Guion', 'Montaje', 'DOP',
                   'Resumen']
 df_films = pd.DataFrame(columns=Atributos_peli)
-
 search = tmdb.Search()
 contador = 0
 

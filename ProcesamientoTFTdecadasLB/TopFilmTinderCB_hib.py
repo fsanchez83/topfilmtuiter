@@ -179,7 +179,8 @@ for usuarios_base in M_usr_filtrada.index:
     pelis_usuario = df_dataReco[df_dataReco['users']==usuarios_base]['items'].to_list()
     for peliculas in M_usr_filtrada.columns:
         if peliculas not in pelis_usuario:
-            estimacion = 50*(Matriz_reco[i_usr,i_pel] + Matriz_reco_vecinos[i_usr,i_pel])
+            #estimacion = 50*(Matriz_reco[i_usr,i_pel] + Matriz_reco_vecinos[i_usr,i_pel])
+            estimacion = 100*(Matriz_reco[i_usr,i_pel])
             lista_recos_hib.append([usuarios_base, peliculas, estimacion])
 
         i_pel += 1
