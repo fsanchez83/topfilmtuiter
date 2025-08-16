@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import yaml
 import re
+import random
+import time
 import sys
 from yaml.loader import SafeLoader
 
@@ -14,7 +16,17 @@ id_lista = dataConfig['General']['id_lista']
 def scrape_films_watched(user, decade=None, es_decada=None):
     # Scrape total films watched
     user_url = f"https://letterboxd.com/{user}"
-    response = requests.get(user_url)
+    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    time.sleep(delay)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    time.sleep(delay)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+    response = requests.get(user_url, headers=headers)
     if response.status_code != 200:
         print(f"Error: Failed to fetch {user_url}, status code: {response.status_code}")
         return None, None
@@ -33,6 +45,7 @@ def scrape_films_watched(user, decade=None, es_decada=None):
     films_in_decade = None
     if decade:
         decade_url = f"https://letterboxd.com/{user}/films/decade/{decade}s/"
+
         response = requests.get(decade_url)
         if response.status_code != 200:
             print(
