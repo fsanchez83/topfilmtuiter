@@ -54,7 +54,7 @@ for index, row in lista_basica.iterrows():
         if tmdb_type == 'movie':
             movie = tmdb.Movies(tmdb_id)
             movieInfo = movie.info()
-            votos = row['Review']
+            votos = None
             url_peli = row['url_peli']
             id_peli = tmdb_id
             titulo = movieInfo['title']
@@ -129,7 +129,7 @@ for index, row in lista_basica.iterrows():
         if tmdb_type == 'tv':
             movie = tmdb.TV(tmdb_id)
             movieInfo = movie.info()
-            votos = row['Review']
+            votos = None
             url_peli = row['url_peli']
             id_peli = tmdb_id
             titulo = movieInfo['name']

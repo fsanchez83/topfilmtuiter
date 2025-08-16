@@ -13,6 +13,8 @@ import requests as rq
 from bs4 import BeautifulSoup
 import yaml
 from yaml.loader import SafeLoader
+import random
+import time
 
 with open('../config.cfg') as f:
     dataConfig = yaml.load(f, Loader=SafeLoader)
@@ -22,6 +24,9 @@ anno_fin = dataConfig['Decadas']['anno_fin']
 
 id_lista = dataConfig['General']['id_lista']
 filmid_whitelist = pd.read_csv('filmid_whitelist_tft')
+filmid_db_url = dataConfig['Resultados'][
+                            'resultados_base']+'Globales/LB-TMDB.csv'
+filmid_db = pd.read_csv(filmid_db_url)
 
 lista_completa_bruto = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_'+id_lista+'_bruto.csv'
 lista_stats_base_bruto = dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/Lista_votaciones_stats_'+id_lista+'_bruto.csv'
@@ -37,7 +42,8 @@ lista_stats_base_pbi = dataConfig['Resultados']['base_pbi']+'stats/Stats_'+id_li
 pd.set_option('display.max_columns', None)
 
 lista_basica = pd.read_csv(lista_stats_base_bruto)
-lista_info_LB = pd.DataFrame(columns=['Title', 'Year', 'url_peli', 'Review', 'tmdb_type', 'tmdb_id', 'nviews'])
+#lista_info_LB = pd.DataFrame(columns=['Title', 'Year', 'url_peli', 'Review',
+# 'tmdb_type', 'tmdb_id', 'nviews'])
 
 errores=[]
 
@@ -45,7 +51,12 @@ def get_LBData(url_film):
     url_base = 'https://letterboxd.com'
     url = url_base + url_film
     url_stats = url_base + '/csi' + url_film + 'stats/'
-    page = rq.get(url)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    time.sleep(delay)
+    page = rq.get(url, headers=headers)
     soup = BeautifulSoup(page.content, 'html.parser')
     try:
         literal = soup.find_all("a", {"data-track-action": "TMDB"})[0].get(
@@ -59,27 +70,95 @@ def get_LBData(url_film):
         tmdb_id = 0
         errores.append(url_film)
 
-    pagestats = rq.get(url_stats)
-    soupstats = BeautifulSoup(pagestats.content, 'html.parser')
-    nviews = int(soupstats.find('a', class_='has-icon icon-watched icon-16 tooltip').get('title').split()[2].replace(',',''))
-    return tmdb_type, tmdb_id, nviews
+    #pagestats = rq.get(url_stats)
+    #soupstats = BeautifulSoup(pagestats.content, 'html.parser')
+    #nviews = int(soupstats.find('a', class_='has-icon icon-watched icon-16
+    # tooltip').get('title').split()[2].replace(',',''))
+    return tmdb_type, tmdb_id
 
-# for index, row in islice(lista_ratings.iterrows(), 1):
-for index, row in lista_basica.iterrows():
-    print(str(index)+": "+row['Title'])
-    tmdb_type, tmdb_id, nviews = get_LBData(row['url_peli'])
-    if row['url_peli'] in set(filmid_whitelist['url_peli']):
-        print('Esta entrando en la Whitelist')
-        tmdb_type = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Type'].values[0]
-        tmdb_id = filmid_whitelist[filmid_whitelist['url_peli'] == row['url_peli']]['Id'].values[0]
 
-    datos_peli = [row['Title'], row['Year'], row['url_peli'], row['Review'], tmdb_type, tmdb_id, nviews]
-    lista_info_LB.loc[len(lista_info_LB)] = datos_peli
+import pandas as pd
 
-lista_descartes = lista_info_LB[(lista_info_LB['Year'] > anno_fin) | (lista_info_LB['Year'] < anno_ini)]
 
-lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] > anno_fin].index)
-lista_info_LB = lista_info_LB.drop(lista_info_LB[lista_info_LB['Year'] < anno_ini].index)
+def enrich_lista_basica(lista_basica, filmid_whitelist, filmid_db, get_LBData,
+                        update_db=True, db_csv_path=None):
+    """
+    Enriquecer lista_basica con tmdb_type y tmdb_id.
+    - Prioridad: filmid_whitelist > filmid_db > get_LBData.
+    - Si update_db=True, añade los nuevos resultados a filmid_db.
+    - Si db_csv_path se indica, guarda filmid_db actualizado en ese CSV.
+    - Conserva 'Year' y 'Title' de lista_basica en el resultado.
+    """
+
+    # --- 1. Normalizamos columnas ---
+    filmid_whitelist = filmid_whitelist.rename(
+        columns={"Type": "tmdb_type", "Id": "tmdb_id"})
+
+    # --- 2. Join con whitelist ---
+    df = lista_basica.merge(
+        filmid_whitelist[["url_peli", "tmdb_type", "tmdb_id"]],
+        on="url_peli", how="left", suffixes=("", "_wl")
+    )
+
+    # --- 3. Join con DB ---
+    df = df.merge(
+        filmid_db[["url_peli", "tmdb_type", "tmdb_id"]],
+        on="url_peli", how="left", suffixes=("", "_db")
+    )
+
+    # --- 4. Resolver ---
+    new_entries = []
+
+    def resolve(row):
+        if pd.notnull(row["tmdb_type"]):  # whitelist
+            return row["tmdb_type"], row["tmdb_id"]
+        elif pd.notnull(row["tmdb_type_db"]):  # db
+            return row["tmdb_type_db"], row["tmdb_id_db"]
+        else:  # API
+            tmdb_type, tmdb_id = get_LBData(row["url_peli"])
+            new_entries.append({"url_peli": row["url_peli"],
+                                "tmdb_type": tmdb_type,
+                                "tmdb_id": tmdb_id})
+            return tmdb_type, tmdb_id
+
+    df[["tmdb_type_final", "tmdb_id_final"]] = df.apply(
+        lambda row: pd.Series(resolve(row)), axis=1
+    )
+
+    # --- 5. Actualizar DB ---
+    if update_db and new_entries:
+        new_df = pd.DataFrame(new_entries)
+        filmid_db = pd.concat([filmid_db, new_df], ignore_index=True).drop_duplicates(
+            subset=["url_peli"], keep="last"
+        )
+        if db_csv_path:
+            filmid_db.to_csv(db_csv_path, index=False, encoding="utf-8")
+
+    # --- 6. Resultado ---
+    enriched = df[["url_peli", "Title", "Year", "tmdb_type_final",
+                   "tmdb_id_final"]].rename(
+        columns={"tmdb_type_final": "tmdb_type", "tmdb_id_final": "tmdb_id"}
+    )
+
+    if update_db:
+        return enriched, filmid_db
+    else:
+        return enriched
+
+
+result, filmid_db_actualizado = enrich_lista_basica(
+    lista_basica,
+    filmid_whitelist,
+    filmid_db,
+    get_LBData,
+    update_db=True,
+    db_csv_path=filmid_db_url
+)
+
+print(result)
+
+lista_descartes = result[(result['Year'] > anno_fin) | (result['Year'] < anno_ini)]
+lista_info_LB = result[(result['Year'] >= anno_ini) & (result['Year'] <= anno_fin)]
 
 print(lista_info_LB)
 print('Errores:', errores)
