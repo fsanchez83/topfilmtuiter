@@ -3,6 +3,8 @@ import requests as rq
 from bs4 import BeautifulSoup
 import sys
 import yaml
+import random
+import time
 from yaml.loader import SafeLoader
 
 with open('../config.cfg') as f:
@@ -21,36 +23,37 @@ def get_films(url_lista, NmaxPelis):
     url = url_lista
     ## URL para pruebas previas al TFTdescubrimientos
     #url = 'https://letterboxd.com/danielquinn/list/tft1919/detail/'
-    request = rq.get(url)
-    request.encoding = "utf-8"
-    response = rq.head(url, allow_redirects=True)
-    url = response.url+'detail'
-    request = rq.get(url)
+    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    time.sleep(delay)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+
+    request = rq.get(url, allow_redirects=True, headers=headers)
+    #request.encoding = "utf-8"
+    #delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    #time.sleep(delay)
+    #response = rq.head(url, allow_redirects=True, headers=headers)
+    url = request.url+'detail'
+
+    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    time.sleep(delay)
+    request = rq.get(url, headers=headers)
     request.encoding = "utf-8"
     bs_page = BeautifulSoup(request.content, 'html.parser')
-    lista_pelis = bs_page.find_all(class_="film-detail")
+    lista_pelis = bs_page.find_all(class_="listitem js-listitem")
 
     lista_films = []
     posicion = 0
     for i in lista_pelis[:NmaxPelis]:
-        lista_att = i.find(class_="headline-2 prettify")
-        lista_numerada = lista_att.find(class_="list-number")
-        url_peli = i.find('a')['href']
-        if lista_numerada is None:
-            posicion = posicion + 1
-            titulo = lista_att.contents[0].get_text()
-            if (len(lista_att.contents)<3):
-                anio = 0
-            else:
-                anio = lista_att.contents[2].get_text()
-        else:
-            posicion, titulo_anio = lista_att.get_text().split(".", 1)
-            titulo = lista_att.contents[1].get_text()
-            if (len(lista_att.contents)<4):
-                anio = 0
-            else:
-                anio = lista_att.contents[3].get_text()
+        posicion = posicion + 1
+        nompre_url_html = i.find(class_="name -primary prettify")
+        anio_html = i.find(class_="releasedate")
+        url_peli = nompre_url_html.find('a')['href']
+        titulo = nompre_url_html.contents[0].get_text(strip=True)
+        anio = anio_html.find('a').get_text(strip=True)
         lista_films.append([posicion, titulo, anio, url_peli, url])
+    print(lista_films)
     return lista_films, url
 
 
@@ -103,7 +106,8 @@ if __name__ == '__main__':
             else:
                 sin_lista.append(df_usuarios.iloc[i]['Usuarios'])
             lista_global.append(lista_films)
-        except:
+        except Exception as e:
+            print(f"Error: {e}")
             print("Lista no válida")
             continue
     print('Número de participantes: ', contador)

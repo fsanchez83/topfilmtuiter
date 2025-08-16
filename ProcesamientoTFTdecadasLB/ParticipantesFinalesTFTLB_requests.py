@@ -22,8 +22,10 @@ csv_file_path = dataConfig['Resultados']['resultados_base'] + id_lista + '/Proce
 url = 'https://letterboxd.com/ajax/filmlist:'+str(list_id_cod)+'/comments/'
 
 def get_users_and_lists(url, csv_file_path):
-
-    request = rq.get(url)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+    request = rq.get(url, headers=headers)
     request.encoding = "utf-8"
     soup = BeautifulSoup(request.content, 'html.parser')
 
