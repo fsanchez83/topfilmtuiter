@@ -2,6 +2,8 @@ import pandas as pd
 import yaml
 from yaml.loader import SafeLoader
 import requests
+import random
+import time
 from bs4 import BeautifulSoup
 
 with open('../config.cfg') as f:
@@ -16,7 +18,12 @@ df_usuarios = pd.read_csv(csv_file_path)
 # Función para obtener followers o followings de una página
 def obtener_personas_pagina(base_url, usuario, accion, pagina):
     url = f'{base_url}{usuario}/{accion}/page/{pagina}/'
-    response = requests.get(url)
+    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    time.sleep(delay)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+    response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         # Parsear el HTML
