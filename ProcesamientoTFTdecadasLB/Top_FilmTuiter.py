@@ -51,7 +51,7 @@ def get_films(url_lista, NmaxPelis):
         titulo = nompre_url_html.contents[0].get_text(strip=True)
         anio = (anio_html.find('a').get_text(strip=True)
                 if (anio_html := i.find(class_="releasedate")) and anio_html.find('a')
-                else None)
+                else 0)
         lista_films.append([posicion, titulo, anio, url_peli, url])
     print(lista_films)
     return lista_films, url
