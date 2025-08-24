@@ -35,23 +35,23 @@ def get_films(url_lista, NmaxPelis):
     #time.sleep(delay)
     #response = rq.head(url, allow_redirects=True, headers=headers)
     url = request.url+'detail'
-
+    print(url)
     delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
     time.sleep(delay)
     request = rq.get(url, headers=headers)
     request.encoding = "utf-8"
     bs_page = BeautifulSoup(request.content, 'html.parser')
     lista_pelis = bs_page.find_all(class_="listitem js-listitem")
-
     lista_films = []
     posicion = 0
     for i in lista_pelis[:NmaxPelis]:
         posicion = posicion + 1
         nompre_url_html = i.find(class_="name -primary prettify")
-        anio_html = i.find(class_="releasedate")
         url_peli = nompre_url_html.find('a')['href']
         titulo = nompre_url_html.contents[0].get_text(strip=True)
-        anio = anio_html.find('a').get_text(strip=True)
+        anio = (anio_html.find('a').get_text(strip=True)
+                if (anio_html := i.find(class_="releasedate")) and anio_html.find('a')
+                else None)
         lista_films.append([posicion, titulo, anio, url_peli, url])
     print(lista_films)
     return lista_films, url
