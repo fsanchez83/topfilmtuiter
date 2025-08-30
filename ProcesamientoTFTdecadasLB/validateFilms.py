@@ -13,6 +13,7 @@ import requests as rq
 from bs4 import BeautifulSoup
 import yaml
 from yaml.loader import SafeLoader
+import html
 import random
 import time
 
@@ -54,7 +55,7 @@ def get_LBData(url_film):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
     }
-    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    delay = random.uniform(1, 2)  # entre 1 y 2 segundos
     time.sleep(delay)
     page = rq.get(url, headers=headers)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -155,10 +156,54 @@ result, filmid_db_actualizado = enrich_lista_basica(
     db_csv_path=filmid_db_url
 )
 
+def incluyeElectores(df_lista_completa, df_lista_stats_base_lb):
+
+    # --- Paso 1: extraer usuario de la url ---
+    df_lista_completa["usuario"] = df_lista_completa["url"].str.extract(
+        r"letterboxd\.com/([^/]+)/")
+
+    # --- Paso 2: agrupar usuarios por película con links en HTML ---
+    def build_links(group):
+        # ordenar desc por Puntos
+        group = group.sort_values("Puntos", ascending=False)
+        # agrupar por Puntos y generar string
+        parts = []
+        for puntos, sub in group.groupby("Puntos", sort=False):
+            links = ", ".join(f"<a href='{url}'>{html.escape(u)}</a>"
+                              for u, url in zip(sub["usuario"], sub["url"]))
+            parts.append(f"{puntos} puntos: {links}")
+        return " <br> ".join(parts)
+
+    df_users = (
+        df_lista_completa
+        .dropna(subset=["url", "usuario", "Puntos"])
+        .groupby(["Titulo", "Anio"])
+        .apply(build_links)
+        .reset_index(name="usuarios_links")
+    )
+
+    # --- Paso 3: unir con stats ---
+    df_lista_stats_base_lb = df_lista_stats_base_lb.rename(
+        columns={"Title": "Titulo", "Year": "Anio"})
+    df_final = df_lista_stats_base_lb.merge(df_users, on=["Titulo", "Anio"], how="left")
+
+    # --- Paso 4: añadir al campo Review ---
+    df_final["Review"] = df_final.apply(
+        lambda row: f'{row["Review"]}. Elegida por:<p>{row["usuarios_links"]}'
+        if pd.notna(row["usuarios_links"]) else f'{row["Review"]} votos',
+        axis=1
+    )
+    df_final = df_final[["Titulo", "Anio", "Review"]].rename(columns={"Titulo": "Title", "Anio": "Year"})
+
+
+    return df_final
+
 print(result)
 
 lista_descartes = result[(result['Year'] > anno_fin) | (result['Year'] < anno_ini)]
 lista_info_LB = result[(result['Year'] >= anno_ini) & (result['Year'] <= anno_fin)]
+
+lista_info_LB = result # Si no se descarta ninguna pelicula. Comentar para decadas
 
 print(lista_info_LB)
 print('Errores:', errores)
@@ -178,6 +223,7 @@ df_lista_stats_base_lb_bruto = pd.read_csv(lista_stats_base_lb_bruto)
 df_lista_stats_base_lb = df_lista_stats_base_lb_bruto.merge(lista_info_LB, on=['Title', 'Year'], how='inner')
 df_lista_stats_base_lb = df_lista_stats_base_lb.rename(columns={'Review_x': 'Review'})[df_lista_stats_base_lb_bruto.columns]
 
+df_lista_stats_base_lb = incluyeElectores(df_lista_completa, df_lista_stats_base_lb)
 
 lista_info_LB.to_csv(lista_stats_base, index=False)
 lista_info_LB.to_csv(lista_stats_base_pbi, index=False)

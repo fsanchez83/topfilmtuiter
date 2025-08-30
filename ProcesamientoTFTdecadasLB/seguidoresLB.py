@@ -18,7 +18,7 @@ df_usuarios = pd.read_csv(csv_file_path)
 # Función para obtener followers o followings de una página
 def obtener_personas_pagina(base_url, usuario, accion, pagina):
     url = f'{base_url}{usuario}/{accion}/page/{pagina}/'
-    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    delay = random.uniform(1, 2.0)  # entre 1.5 y 3 segundos
     time.sleep(delay)
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"

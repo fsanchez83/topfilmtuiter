@@ -45,7 +45,7 @@ with open('../config.cfg') as f:
     dataConfig = yaml.load(f, Loader=SafeLoader)
 
 pd.set_option('display.max_columns', None)
-# pd.set_option('display.max_rows', None)
+pd.set_option('display.max_rows', None)
 
 id_lista = dataConfig['General']['id_lista']
 
@@ -71,7 +71,9 @@ matriz_usr_peli = df_dataReco.pivot(index='users', columns='items', values='rati
 # Convierto los literales en listas y aislo cada posible valor, creando categorias unicas con OHE
 df_caracteristicas = pd.read_csv(dataConfig['Resultados']['resultados_base']+id_lista+'/Procesamiento/dataset_'+id_lista+'.csv', sep=';')
 df_caracteristicas = df_caracteristicas[['url_peli','Fecha', 'Pais', 'Director', 'Generos']]
-df_caracteristicas['Fecha'] = df_caracteristicas['Fecha'].str[:4].astype(int)//10*10
+print(df_caracteristicas)
+df_caracteristicas['Fecha'] = df_caracteristicas['Fecha'].fillna("0").str[:4].astype(
+    int)//10*10
 df_caracteristicas['Generos'] = df_caracteristicas['Generos'].apply(ast.literal_eval)
 df_caracteristicas['Director'] = df_caracteristicas['Director'].apply(ast.literal_eval)
 

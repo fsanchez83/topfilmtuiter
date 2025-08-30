@@ -16,7 +16,7 @@ id_lista = dataConfig['General']['id_lista']
 def scrape_films_watched(user, decade=None, es_decada=None):
     # Scrape total films watched
     user_url = f"https://letterboxd.com/{user}"
-    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    delay = random.uniform(1, 2)  # entre 1 y 2 segundos
     time.sleep(delay)
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
