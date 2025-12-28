@@ -53,7 +53,7 @@ def get_films(url_lista, NmaxPelis):
                 if (anio_html := i.find(class_="releasedate")) and anio_html.find('a')
                 else 0)
         lista_films.append([posicion, titulo, anio, url_peli, url])
-    print(lista_films)
+    #print(lista_films)
     return lista_films, url
 
 
@@ -87,7 +87,7 @@ def calcula_puntos(pos):
 # Inicio del script
 if __name__ == '__main__':
 
-    df_usuarios = pd.read_csv(lista_usrs).drop_duplicates()
+    df_usuarios = pd.read_csv(lista_usrs).drop_duplicates(subset=["Participante"])
     print(df_usuarios)
 
     sin_lista = []

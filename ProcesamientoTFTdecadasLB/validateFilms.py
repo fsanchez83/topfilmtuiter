@@ -203,7 +203,7 @@ print(result)
 lista_descartes = result[(result['Year'] > anno_fin) | (result['Year'] < anno_ini)]
 lista_info_LB = result[(result['Year'] >= anno_ini) & (result['Year'] <= anno_fin)]
 
-lista_info_LB = result # Si no se descarta ninguna pelicula. Comentar para decadas
+#lista_info_LB = result # Si no se descarta ninguna pelicula. Comentar para decadas
 
 print(lista_info_LB)
 print('Errores:', errores)
