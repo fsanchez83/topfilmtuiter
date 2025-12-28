@@ -4,13 +4,16 @@ Conjunto de scripts utilizados para implementar la iniciativa "Top Filmtuiter", 
 
 El conjunto del proyecto puede estructurarse de la siguiente manera, correspondiendo cada apartado a una carpeta:
 
-1. Selección de los participantes potenciales (ParticipantesTopFilmTuiter)
-2. Procesamiento de resultados (Procesamiento)
+1. Selección de los participantes potenciales (ParticipantesTopFilmTuiter). Esto solo era necesario en las primeras ediciones, cuando se utilizaba Twitter en lugar de Leterboxd para incribirse.
+2. Procesamiento de resultados (Procesamiento). Hay varias carpetas según la evolución del proyecto o peculiaridades de algún top. Pero ya se puede considerar que la única estable, una vez implantado completamente el modelo 100% Letterboxd, es la carpeta ProcesamientoTFTdecadasaLB. Las demás son legacy. Por lo tanto, las únicas carpetas necesarias para el proyecto tal y como está a finales de 2025 son ProcesamientoTFTdecadasaLB, Resultados (donde se guardan los csv generados) y PBI (guarda los recursos también generados en los scripts de procesamiento, o alguno adicional en su caso, necesarios para explotar los resultados con Power BI; esta carpeta incluye también el propio archivo pbix).
     1. Recolección de usuarios participantes.
     2. Procesamiento de las listas.
     3. [OPCIONAL] Validación de películas.
     4. Enriquecimiento de los datos.
     5. TopFilmTinder.
+    6. SeguidoresLB. Obtiene los seguidores y seguidos en LB de cada participante
+    7. Seguidores_filtro. Filtra los seguidores del paso anterior, dejando solo los participantes de la edición de TFT.
+    8. Datos usuario. Obtiene el número de películas de cada usuario en LB, en total y relativos a la década del top (cuando sea de décadas)
 3. Resultados de cada edición (Resultados)
 4. Explotación de los datos con Power BI (PBI)
 5. Actividad paralela: quiniela (Quiniela)
