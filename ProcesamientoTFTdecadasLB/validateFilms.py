@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 import yaml
 from yaml.loader import SafeLoader
 import html
+import cloudscraper
 import random
 import time
 
@@ -57,7 +58,8 @@ def get_LBData(url_film):
     }
     delay = random.uniform(1, 2)  # entre 1 y 2 segundos
     time.sleep(delay)
-    page = rq.get(url, headers=headers)
+    scraper = cloudscraper.create_scraper()
+    page = scraper.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     try:
         literal = soup.find_all("a", {"data-track-action": "TMDB"})[0].get(
@@ -92,25 +94,30 @@ def enrich_lista_basica(lista_basica, filmid_whitelist, filmid_db, get_LBData,
     """
 
     # --- 1. Normalizamos columnas ---
+    print("Normalizamos columnas")
     filmid_whitelist = filmid_whitelist.rename(
         columns={"Type": "tmdb_type", "Id": "tmdb_id"})
 
     # --- 2. Join con whitelist ---
+    print("Join con whitelist")
     df = lista_basica.merge(
         filmid_whitelist[["url_peli", "tmdb_type", "tmdb_id"]],
         on="url_peli", how="left", suffixes=("", "_wl")
     )
 
     # --- 3. Join con DB ---
+    print("Join con DB")
     df = df.merge(
         filmid_db[["url_peli", "tmdb_type", "tmdb_id"]],
         on="url_peli", how="left", suffixes=("", "_db")
     )
 
     # --- 4. Resolver ---
+    print("Resolver")
     new_entries = []
 
     def resolve(row):
+        print(row['Title'])
         if pd.notnull(row["tmdb_type"]):  # whitelist
             return row["tmdb_type"], row["tmdb_id"]
         elif pd.notnull(row["tmdb_type_db"]):  # db
@@ -127,6 +134,7 @@ def enrich_lista_basica(lista_basica, filmid_whitelist, filmid_db, get_LBData,
     )
 
     # --- 5. Actualizar DB ---
+    print("Actualizar DB")
     if update_db and new_entries:
         new_df = pd.DataFrame(new_entries)
         filmid_db = pd.concat([filmid_db, new_df], ignore_index=True).drop_duplicates(
@@ -136,6 +144,7 @@ def enrich_lista_basica(lista_basica, filmid_whitelist, filmid_db, get_LBData,
             filmid_db.to_csv(db_csv_path, index=False, encoding="utf-8")
 
     # --- 6. Resultado ---
+    print("Resultado")
     enriched = df[["url_peli", "Title", "Year", "tmdb_type_final",
                    "tmdb_id_final"]].rename(
         columns={"tmdb_type_final": "tmdb_type", "tmdb_id_final": "tmdb_id"}

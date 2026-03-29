@@ -5,6 +5,7 @@ import sys
 import yaml
 import random
 import time
+import cloudscraper
 from yaml.loader import SafeLoader
 
 with open('../config.cfg') as f:
@@ -28,8 +29,9 @@ def get_films(url_lista, NmaxPelis):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
     }
-
-    request = rq.get(url, allow_redirects=True, headers=headers)
+    scraper = cloudscraper.create_scraper()
+    request = scraper.get(url)
+    #request = rq.get(url, allow_redirects=True, headers=headers)
     #request.encoding = "utf-8"
     #delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
     #time.sleep(delay)
@@ -38,7 +40,8 @@ def get_films(url_lista, NmaxPelis):
     print(url)
     delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
     time.sleep(delay)
-    request = rq.get(url, headers=headers)
+    request = scraper.get(url)
+    #request = rq.get(url, headers=headers)
     request.encoding = "utf-8"
     bs_page = BeautifulSoup(request.content, 'html.parser')
     lista_pelis = bs_page.find_all(class_="listitem js-listitem")
@@ -46,7 +49,7 @@ def get_films(url_lista, NmaxPelis):
     posicion = 0
     for i in lista_pelis[:NmaxPelis]:
         posicion = posicion + 1
-        nompre_url_html = i.find(class_="name -primary prettify")
+        nompre_url_html = i.find(class_="primaryname prettify")
         url_peli = nompre_url_html.find('a')['href']
         titulo = nompre_url_html.contents[0].get_text(strip=True)
         anio = (anio_html.find('a').get_text(strip=True)
