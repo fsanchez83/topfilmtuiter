@@ -1,4 +1,4 @@
-import requests
+import cloudscraper
 from bs4 import BeautifulSoup
 import pandas as pd
 import yaml
@@ -7,6 +7,8 @@ import random
 import time
 import sys
 from yaml.loader import SafeLoader
+
+scraper = cloudscraper.create_scraper()
 
 with open('../config.cfg') as f:
     dataConfig = yaml.load(f, Loader=SafeLoader)
@@ -21,7 +23,7 @@ def scrape_films_watched(user, decade=None, es_decada=None):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
     }
-    response = requests.get(user_url, headers=headers)
+    response = scraper.get(user_url, headers=headers)
     if response.status_code != 200:
         print(f"Error: Failed to fetch {user_url}, status code: {response.status_code}")
         return None, None
@@ -46,7 +48,7 @@ def scrape_films_watched(user, decade=None, es_decada=None):
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         }
 
-        response = requests.get(decade_url, headers=headers)
+        response = scraper.get(decade_url, headers=headers)
         if response.status_code != 200:
             print(
                 f"Error: Failed to fetch {decade_url}, status code: {response.status_code}")

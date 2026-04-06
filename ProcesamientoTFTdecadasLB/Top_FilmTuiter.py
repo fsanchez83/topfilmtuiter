@@ -24,7 +24,7 @@ def get_films(url_lista, NmaxPelis):
     url = url_lista
     ## URL para pruebas previas al TFTdescubrimientos
     #url = 'https://letterboxd.com/danielquinn/list/tft1919/detail/'
-    delay = random.uniform(1.5, 3.0)  # entre 1.5 y 3 segundos
+    delay = random.uniform(1, 2.0)  # entre 1.5 y 3 segundos
     time.sleep(delay)
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
@@ -101,13 +101,19 @@ if __name__ == '__main__':
 
         print(df_usuarios.iloc[i]['Participante'])
         try:
-            lista_films,url = get_films(df_usuarios.iloc[i]['Lista'], 25)
+            for intento in range(3):
+                lista_films, url = get_films(df_usuarios.iloc[i]['Lista'], 25)
+                if len(lista_films) > 0:
+                    break
+                else:
+                    print(
+                        f"Intento {intento + 1} fallido para {df_usuarios.iloc[i]['Lista']}. Reintentando...")
 
             if len(lista_films) > 0:
                 contador += 1
-                #print(url)
+                    #print(url)
             else:
-                sin_lista.append(df_usuarios.iloc[i]['Usuarios'])
+                sin_lista.append(df_usuarios.iloc[i]['Participante'])
             lista_global.append(lista_films)
         except Exception as e:
             print(f"Error: {e}")

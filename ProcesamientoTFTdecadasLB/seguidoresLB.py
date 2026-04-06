@@ -1,10 +1,12 @@
 import pandas as pd
 import yaml
 from yaml.loader import SafeLoader
-import requests
+import cloudscraper
 import random
 import time
 from bs4 import BeautifulSoup
+
+scraper = cloudscraper.create_scraper()
 
 with open('../config.cfg') as f:
     dataConfig = yaml.load(f, Loader=SafeLoader)
@@ -23,7 +25,8 @@ def obtener_personas_pagina(base_url, usuario, accion, pagina):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
     }
-    response = requests.get(url, headers=headers)
+
+    response = scraper.get(url, headers=headers)
 
     if response.status_code == 200:
         # Parsear el HTML

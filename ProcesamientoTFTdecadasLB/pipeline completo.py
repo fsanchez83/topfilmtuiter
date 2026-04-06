@@ -10,12 +10,12 @@ else:
   print("Ejecución correcta de ParticipantesFinales")
 
 # Script 02
-try:
-  exec(open("Top_FilmTuiter.py").read())
-except:
-  print("Ha ocurrido un error en Top_FilmTuiter")
-else:
-  print("Ejecución correcta de Top_FilmTuiter")
+#try:
+exec(open("Top_FilmTuiter.py").read())
+#except:
+#  print("Ha ocurrido un error en Top_FilmTuiter")
+#else:
+print("Ejecución correcta de Top_FilmTuiter")
 
 # Script 03
 try:

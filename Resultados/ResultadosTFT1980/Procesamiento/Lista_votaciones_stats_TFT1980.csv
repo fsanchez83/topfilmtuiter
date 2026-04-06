@@ -1,0 +1,755 @@
+url_peli,Title,Year,tmdb_type,tmdb_id
+/film/el-sur/,El Sur,1983,movie,48139.0
+/film/blue-velvet/,Blue Velvet,1986,movie,793.0
+/film/the-green-ray/,The Green Ray,1986,movie,54898.0
+/film/where-is-the-friends-house/,Where Is the Friend's House?,1987,movie,49964.0
+/film/paris-texas/,"Paris, Texas",1984,movie,655.0
+/film/sans-soleil/,Sans Soleil,1983,movie,1563.0
+/film/blade-runner/,Blade Runner,1982,movie,78.0
+/film/blow-out/,Blow Out,1981,movie,11644.0
+/film/the-thing/,The Thing,1982,movie,1091.0
+/film/ran/,Ran,1985,movie,11645.0
+/film/largent-1983/,L'Argent,1983,movie,42112.0
+/film/hovering-over-the-water/,Hovering Over the Water,1986,movie,83229.0
+/film/francisca/,Francisca,1981,movie,110789.0
+/film/raging-bull/,Raging Bull,1980,movie,1578.0
+/film/nostalgia-1983/,Nostalgia,1983,movie,1394.0
+/film/heavens-gate/,Heaven's Gate,1980,movie,10935.0
+/film/love-streams/,Love Streams,1984,movie,52109.0
+/film/the-sacrifice/,The Sacrifice,1986,movie,24657.0
+/film/the-shining/,The Shining,1980,movie,694.0
+/film/fanny-and-alexander/,Fanny and Alexander,1982,movie,5961.0
+/film/come-and-see/,Come and See,1985,movie,25237.0
+/film/toute-une-nuit/,Toute une nuit,1982,movie,63215.0
+/film/videodrome/,Videodrome,1983,movie,837.0
+/film/a-nos-amours/,A Nos Amours,1983,movie,2282.0
+/film/the-elephant-man/,The Elephant Man,1980,movie,1955.0
+/film/body-double/,Body Double,1984,movie,11507.0
+/film/terrorizers/,Terrorizers,1986,movie,78450.0
+/film/hannah-and-her-sisters/,Hannah and Her Sisters,1986,movie,5143.0
+/film/hours-for-jerome/,Hours for Jerome,1982,movie,151223.0
+/film/nostos-the-return/,Nostos: The Return,1989,movie,237957.0
+/film/histoires-du-cinema-1989/,Histoire(s) du cinéma,1989,tv,206647.0
+/film/possession/,Possession,1981,movie,21484.0
+/film/evening-performance/,Evening Performance,1981,movie,320037.0
+/film/that-day-on-the-beach/,"That Day, on the Beach",1983,movie,106373.0
+/film/once-upon-a-time-in-america/,Once Upon a Time in America,1984,movie,311.0
+/film/pauline-at-the-beach/,Pauline at the Beach,1983,movie,10293.0
+/film/shoah/,Shoah,1985,movie,42044.0
+/film/landscape-in-the-mist/,Landscape in the Mist,1988,movie,47795.0
+/film/wings-of-desire/,Wings of Desire,1987,movie,144.0
+/film/shadows-in-paradise/,Shadows in Paradise,1986,movie,3.0
+/film/my-neighbor-totoro/,My Neighbor Totoro,1988,movie,8392.0
+/film/ana-1982/,Ana,1982,movie,260922.0
+/film/his-motorbike-her-island/,"His Motorbike, Her Island",1986,movie,298973.0
+/film/the-dead/,The Dead,1987,movie,39507.0
+/film/kikis-delivery-service/,Kiki's Delivery Service,1989,movie,16859.0
+/film/le-pont-du-nord/,Le Pont du Nord,1981,movie,59484.0
+/film/the-time-to-live-and-the-time-to-die/,The Time to Live and the Time to Die,1985,movie,45999.0
+/film/women-on-the-verge-of-a-nervous-breakdown/,Women on the Verge of a Nervous Breakdown,1988,movie,4203.0
+/film/lacrima-christi/,Lacrima Christi,1980,movie,437552.0
+/film/opera/,Opera,1987,movie,20115.0
+/film/taipei-story/,Taipei Story,1985,movie,106380.0
+/film/so-is-this/,So Is This,1982,movie,136762.0
+/film/et-the-extra-terrestrial/,E.T. the Extra-Terrestrial,1982,movie,601.0
+/film/do-the-right-thing/,Do the Right Thing,1989,movie,925.0
+/film/thief/,Thief,1981,movie,11524.0
+/film/running-on-empty-1988/,Running on Empty,1988,movie,18197.0
+/film/a-city-of-sadness/,A City of Sadness,1989,movie,49982.0
+/film/dekalog/,Dekalog,1989,tv,42699.0
+/film/honkytonk-man/,Honkytonk Man,1982,movie,37917.0
+/film/the-aviators-wife/,The Aviator's Wife,1981,movie,27145.0
+/film/the-death-of-empedocles/,The Death of Empedocles,1987,movie,255769.0
+/film/crimes-and-misdemeanors/,Crimes and Misdemeanors,1989,movie,11562.0
+/film/cinema-paradiso/,Cinema Paradiso,1988,movie,11216.0
+/film/manhunter/,Manhunter,1986,movie,11454.0
+/film/akira/,Akira,1988,movie,149.0
+/film/gang-of-four/,Gang of Four,1989,movie,55853.0
+/film/nomad/,Nomad,1982,movie,157229.0
+/film/route-one-usa/,Route One/USA,1989,movie,110751.0
+/film/back-to-the-future/,Back to the Future,1985,movie,105.0
+/film/nausicaa-of-the-valley-of-the-wind/,Nausicaä of the Valley of the Wind,1984,movie,81.0
+/film/damnation/,Damnation,1988,movie,20122.0
+/film/one-hundred-children-waiting-for-a-train/,One Hundred Children Waiting for a Train,1988,movie,130269.0
+/film/sound-and-fury-1988/,Sound and Fury,1988,movie,51228.0
+/film/after-hours/,After Hours,1985,movie,10843.0
+/film/ariel/,Ariel,1988,movie,2.0
+/film/dead-ringers/,Dead Ringers,1988,movie,9540.0
+/film/boyfriends-and-girlfriends/,Boyfriends and Girlfriends,1987,movie,64544.0
+/film/phenomena/,Phenomena,1985,movie,29161.0
+/film/working-girls-1986/,Working Girls,1986,movie,96349.0
+/film/before-my-eyes/,Before My Eyes,1989,movie,363506.0
+/film/inferno-1980/,Inferno,1980,movie,16395.0
+/film/stop-making-sense/,Stop Making Sense,1984,movie,24128.0
+/film/berlin-alexanderplatz/,Berlin Alexanderplatz,1980,tv,43189.0
+/film/vagabond/,Vagabond,1985,movie,44018.0
+/film/the-killer/,The Killer,1989,movie,10835.0
+/film/simone-barbes-or-virtue/,Simone Barbès or Virtue,1980,movie,246649.0
+/film/prince-of-the-city/,Prince of the City,1981,movie,32047.0
+/film/what-have-i-done-to-deserve-this/,What Have I Done to Deserve This?,1984,movie,8221.0
+/film/amadeus/,Amadeus,1984,movie,279.0
+/film/too-early-too-late/,Too Early / Too Late,1981,movie,97032.0
+/film/godards-passion/,Godard's Passion,1982,movie,32692.0
+/film/mauvais-sang/,Mauvais Sang,1986,movie,64131.0
+/film/the-empire-strikes-back/,The Empire Strikes Back,1980,movie,1891.0
+/film/blood-1989/,Blood,1989,movie,46821.0
+/film/fitzcarraldo/,Fitzcarraldo,1982,movie,9343.0
+/film/smorgasbord/,Smorgasbord,1983,movie,36818.0
+/film/rich-and-famous/,Rich and Famous,1981,movie,109962.0
+/film/a-short-film-about-love/,A Short Film About Love,1988,movie,31056.0
+/film/four-adventures-of-reinette-and-mirabelle/,Four Adventures of Reinette and Mirabelle,1987,movie,37189.0
+/film/she-spent-so-many-hours-under-the-sun-lamps/,She Spent So Many Hours Under the Sun Lamps,1985,movie,162329.0
+/film/the-blue-planet-1982/,The Blue Planet,1982,movie,96300.0
+/film/full-moon-in-paris/,Full Moon in Paris,1984,movie,27102.0
+/film/angels-egg/,Angel's Egg,1985,movie,15916.0
+/film/to-live-and-die-in-la/,To Live and Die in L.A.,1985,movie,9846.0
+/film/a-brutal-game/,A Brutal Game,1983,movie,80307.0
+/film/die-hard/,Die Hard,1988,movie,562.0
+/film/hail-mary/,Hail Mary,1985,movie,32720.0
+/film/city-of-pirates/,City of Pirates,1983,movie,68757.0
+/film/distant-voices-still-lives/,"Distant Voices, Still Lives",1988,movie,41799.0
+/film/lenfant-secret/,L'Enfant Secret,1982,movie,123817.0
+/film/our-lady-of-paris/,Our Lady of Paris,1982,movie,324662.0
+/film/white-dog/,White Dog,1982,movie,47955.0
+/film/scarface-1983/,Scarface,1983,movie,111.0
+/film/grave-of-the-fireflies/,Grave of the Fireflies,1988,movie,12477.0
+/film/law-of-desire/,Law of Desire,1987,movie,4043.0
+/film/sex-lies-and-videotape/,"sex, lies, and videotape",1989,movie,1412.0
+/film/the-holy-innocents/,The Holy Innocents,1984,movie,75877.0
+/film/when-harry-met-sally/,When Harry Met Sally...,1989,movie,639.0
+/film/first-name-carmen/,First Name: Carmen,1983,movie,32689.0
+/film/el-crack/,El crack,1981,movie,60794.0
+/film/they-live/,They Live,1988,movie,8337.0
+/film/ms-45/,Ms .45,1981,movie,22171.0
+/film/buddies-1985/,Buddies,1985,movie,259433.0
+/film/dawn-breaks-which-is-no-small-thing/,"Dawn Breaks, Which Is No Small Thing",1989,movie,20607.0
+/film/raiders-of-the-lost-ark/,Raiders of the Lost Ark,1981,movie,85.0
+/film/rumble-fish/,Rumble Fish,1983,movie,232.0
+/film/island-of-loves/,Island of Loves,1982,movie,198481.0
+/film/the-glass-menagerie-1987/,The Glass Menagerie,1987,movie,52780.0
+/film/a-better-tomorrow/,A Better Tomorrow,1986,movie,11471.0
+/film/class-relations/,Class Relations,1984,movie,117479.0
+/film/full-metal-jacket/,Full Metal Jacket,1987,movie,600.0
+/film/year-of-the-dragon/,Year of the Dragon,1985,movie,11018.0
+/film/cruising/,Cruising,1980,movie,27958.0
+/film/broadcast-news/,Broadcast News,1987,movie,12626.0
+/film/one-from-the-heart/,One from the Heart,1982,movie,41291.0
+/film/prince-of-darkness/,Prince of Darkness,1987,movie,8852.0
+/film/stand-by-me/,Stand by Me,1986,movie,235.0
+/film/every-man-for-himself/,Every Man for Himself,1980,movie,113479.0
+/film/images-of-the-world-and-the-inscription-of/,Images of the World and the Inscription of War,1988,movie,115150.0
+/film/the-cook-the-thief-his-wife-her-lover/,"The Cook, the Thief, His Wife & Her Lover",1989,movie,7452.0
+/film/twenty-years-later/,Twenty Years Later,1984,movie,86320.0
+/film/airplane/,Airplane!,1980,movie,813.0
+/film/starman/,Starman,1984,movie,9663.0
+/film/the-antiquities-of-rome/,The Antiquities of Rome,1989,movie,262478.0
+/film/fanny-and-alexander-1984/,Fanny and Alexander,1984,tv,33153.0
+/film/indiana-jones-and-the-last-crusade/,Indiana Jones and the Last Crusade,1989,movie,89.0
+/film/querelle/,Querelle,1982,movie,42135.0
+/film/elephant/,Elephant,1989,movie,37055.0
+/film/the-asthenic-syndrome/,The Asthenic Syndrome,1989,movie,97039.0
+/film/faster-faster/,"Faster, Faster",1981,movie,47211.0
+/film/lhomme-atlantique/,L’homme atlantique,1981,movie,361150.0
+/film/spring-in-autumn/,Spring in Autumn,1985,movie,463512.0
+/film/aliens/,Aliens,1986,movie,679.0
+/film/au-revoir-les-enfants/,Au Revoir les Enfants,1987,movie,1786.0
+/film/maine-ocean-express/,Maine-Ocean Express,1986,movie,63663.0
+/film/missing/,Missing,1982,movie,15600.0
+/film/from-the-life-of-the-marionettes/,From the Life of the Marionettes,1980,movie,42152.0
+/film/on-the-silver-globe/,On the Silver Globe,1988,movie,27072.0
+/film/ordinary-people/,Ordinary People,1980,movie,16619.0
+/film/white-wedding/,White Wedding,1989,movie,37533.0
+/film/my-dear-subject/,My Dear Subject,1988,movie,340258.0
+/film/stranger-than-paradise/,Stranger Than Paradise,1984,movie,469.0
+/film/in-the-white-city/,In the White City,1983,movie,33802.0
+/film/the-4th-man/,The 4th Man,1983,movie,29140.0
+/film/the-beyond/,The Beyond,1981,movie,19204.0
+/film/and-the-ship-sails-on/,And the Ship Sails On,1983,movie,5622.0
+/film/identification-of-a-woman/,Identification of a Woman,1982,movie,53234.0
+/film/robocop/,RoboCop,1987,movie,5548.0
+/film/tongues-untied/,Tongues Untied,1989,movie,97049.0
+/film/windschaduw/,Windschaduw,1986,movie,523491.0
+/film/koyaanisqatsi/,Koyaanisqatsi,1982,movie,11314.0
+/film/out-of-the-blue/,Out of the Blue,1980,movie,39269.0
+/film/veronika-voss/,Veronika Voss,1982,movie,2262.0
+/film/down-by-law/,Down by Law,1986,movie,1554.0
+/film/tetsuo-the-iron-man/,Tetsuo: The Iron Man,1989,movie,41428.0
+/film/evening-rain/,Evening Rain,1980,movie,259034.0
+/film/the-fly-1986/,The Fly,1986,movie,9426.0
+/film/the-verdict-1982/,The Verdict,1982,movie,24226.0
+/film/zelig/,Zelig,1983,movie,11030.0
+/film/born-in-flames/,Born in Flames,1983,movie,36832.0
+/film/christiane-f/,Christiane F.,1981,movie,9589.0
+/film/the-breakfast-club/,The Breakfast Club,1985,movie,2108.0
+/film/the-fog/,The Fog,1980,movie,790.0
+/film/the-purple-rose-of-cairo/,The Purple Rose of Cairo,1985,movie,10849.0
+/film/deed-undone/,Deed Undone,1989,movie,456333.0
+/film/golden-eighties/,Golden Eighties,1986,movie,63763.0
+/film/dressed-to-kill-1980/,Dressed to Kill,1980,movie,11033.0
+/film/the-seventh-continent/,The Seventh Continent,1989,movie,32761.0
+/film/tampopo/,Tampopo,1985,movie,11830.0
+/film/city-of-the-living-dead/,City of the Living Dead,1980,movie,24920.0
+/film/juan-as-if-nothing-ever-happened/,Juan: As If Nothing Ever Happened,1987,movie,427387.0
+/film/kagemusha/,Kagemusha,1980,movie,11953.0
+/film/the-second-journey-to-uluru/,The Second Journey (To Uluru),1981,movie,578722.0
+/film/tree-of-knowledge/,Tree of Knowledge,1981,movie,16029.0
+/film/variety/,Variety,1983,movie,85129.0
+/film/brazil/,Brazil,1985,movie,68.0
+/film/henry-portrait-of-a-serial-killer/,Henry: Portrait of a Serial Killer,1986,movie,10692.0
+/film/alice-1988/,Alice,1988,movie,18917.0
+/film/overdose-1983/,Overdose,1983,movie,98596.0
+/film/american-gigolo/,American Gigolo,1980,movie,2768.0
+/film/boy-meets-girl/,Boy Meets Girl,1984,movie,63418.0
+/film/chidambaram/,Chidambaram,1985,movie,264323.0
+/film/landscape-suicide/,Landscape Suicide,1986,movie,125305.0
+/film/tenebre/,Tenebre,1982,movie,29702.0
+/film/bird/,Bird,1988,movie,24679.0
+/film/drugstore-cowboy/,Drugstore Cowboy,1989,movie,476.0
+/film/santa-sangre/,Santa Sangre,1989,movie,19236.0
+/film/shanghai-blues/,Shanghai Blues,1984,movie,143479.0
+/film/the-woman-next-door/,The Woman Next Door,1981,movie,12579.0
+/film/berlin-chamissoplatz/,Berlin Chamissoplatz,1980,movie,97189.0
+/film/the-shadow-box/,The Shadow Box,1980,movie,131481.0
+/film/desert-rose-1989/,Desert Rose,1989,movie,242375.0
+/film/silvestre/,Silvestre,1981,movie,83233.0
+/film/voyage-to-nowhere/,Voyage to Nowhere,1986,movie,156453.0
+/film/black-rain-1989/,Black Rain,1989,movie,185987.0
+/film/kung-fu-master/,Kung-Fu Master!,1988,movie,47429.0
+/film/pierre-and-djemila/,Pierre and Djemila,1987,movie,198453.0
+/film/the-age-of-the-earth/,The Age of the Earth,1980,movie,76816.0
+/film/tie-me-up-tie-me-down/,Tie Me Up! Tie Me Down!,1989,movie,2469.0
+/film/time-of-the-gypsies/,Time of the Gypsies,1988,movie,20123.0
+/film/who-framed-roger-rabbit/,Who Framed Roger Rabbit,1988,movie,856.0
+/film/das-boot/,Das Boot,1981,movie,387.0
+/film/house-of-games/,House of Games,1987,movie,26719.0
+/film/lets-get-lost-1988/,Let's Get Lost,1988,movie,37640.0
+/film/tasio/,Tasio,1984,movie,115502.0
+/film/the-draughtsmans-contract/,The Draughtsman's Contract,1982,movie,10831.0
+/film/the-vanishing/,The Vanishing,1988,movie,8740.0
+/film/drowning-by-numbers/,Drowning by Numbers,1988,movie,27362.0
+/film/from-the-pole-to-the-equator/,From the Pole to the Equator,1987,movie,195207.0
+/film/pas-de-ciel/,Pas de ciel,1987,movie,536574.0
+/film/the-belly-of-an-architect/,The Belly of an Architect,1987,movie,17238.0
+/film/china-girl-1987/,China Girl,1987,movie,47212.0
+/film/agatha-and-the-limitless-readings/,Agatha and the Limitless Readings,1981,movie,63659.0
+/film/evil-dead-ii/,Evil Dead II,1987,movie,765.0
+/film/moonstruck/,Moonstruck,1987,movie,2039.0
+/film/rosa-la-rose-fille-publique/,"Rosa la rose, fille publique",1986,movie,63153.0
+/film/twin-peaks/,Twin Peaks,1989,movie,452522.0
+/film/a-zed-two-noughts/,A Zed & Two Noughts,1985,movie,33078.0
+/film/blood-simple/,Blood Simple,1984,movie,11368.0
+/film/broadway-danny-rose/,Broadway Danny Rose,1984,movie,12762.0
+/film/hairspray/,Hairspray,1988,movie,11054.0
+/film/merry-christmas-mr-lawrence/,"Merry Christmas, Mr. Lawrence",1983,movie,11948.0
+/film/my-heart-is-that-eternal-rose/,My Heart Is That Eternal Rose,1989,movie,78033.0
+/film/palombella-rossa/,Palombella rossa,1989,movie,56521.0
+/film/spacy/,Spacy,1981,movie,247556.0
+/film/the-evil-dead/,The Evil Dead,1981,movie,764.0
+/film/the-legend-of-suram-fortress/,The Legend of Suram Fortress,1985,movie,103590.0
+/film/the-movement-of-things/,The Movement of Things,1985,movie,324672.0
+/film/the-poem-of-hayachine-valley/,The Poem of Hayachine Valley,1982,movie,799118.0
+/film/the-terminator/,The Terminator,1984,movie,218.0
+/film/typhoon-club/,Typhoon Club,1985,movie,108634.0
+/film/crystal-1988/,Crystal,1988,movie,620104.0
+/film/god-does-not-believe-in-us-anymore/,God Does Not Believe in Us Anymore,1982,movie,2306.0
+/film/the-last-temptation-of-christ/,The Last Temptation of Christ,1988,movie,11051.0
+/film/welcome-in-vienna/,Welcome in Vienna,1985,movie,155206.0
+/film/grim-1985/,Grim,1985,movie,283869.0
+/film/rouge/,Rouge,1987,movie,68883.0
+/film/the-dante-quartet/,The Dante Quartet,1987,movie,126194.0
+/film/the-princess-bride/,The Princess Bride,1987,movie,2493.0
+/film/a-nightmare-on-elm-street-3-dream-warriors/,A Nightmare on Elm Street 3: Dream Warriors,1987,movie,10072.0
+/film/beirut-my-city/,"Beirut, My City",1983,movie,489107.0
+/film/daughter-of-the-nile/,Daughter of the Nile,1987,movie,99599.0
+/film/el-crack-dos/,El crack dos,1983,movie,60854.0
+/film/fake-fruit-factory/,Fake Fruit Factory,1986,movie,150711.0
+/film/impressions-from-the-upper-atmosphere/,Impressions from the Upper Atmosphere,1989,movie,264638.0
+/film/messages-1984/,Messages,1984,movie,361921.0
+/film/the-home-and-the-world/,The Home and the World,1984,movie,42092.0
+/film/busu/,BU・SU,1987,movie,204529.0
+/film/cada-ver-es/,Cada ver es...,1983,movie,445183.0
+/film/despues-de-primera-parte-no-se-os-puede-dejar-solos/,Después de… Primera parte: no se os puede dejar solos,1981,movie,316174.0
+/film/mati-manas/,Mati Manas,1985,movie,257573.0
+/film/mommie-dearest/,Mommie Dearest,1981,movie,15660.0
+/film/out-of-africa/,Out of Africa,1985,movie,606.0
+/film/the-plague-dogs/,The Plague Dogs,1982,movie,30060.0
+/film/the-water-of-the-seine/,The Water of the Seine,1983,movie,474143.0
+/film/dangerous-liaisons/,Dangerous Liaisons,1988,movie,859.0
+/film/the-long-good-friday/,The Long Good Friday,1980,movie,14807.0
+/film/a-room-in-town-1982/,A Room in Town,1982,movie,4269.0
+/film/a-tale-of-the-wind/,A Tale of the Wind,1988,movie,97035.0
+/film/as-tears-go-by/,As Tears Go By,1988,movie,24163.0
+/film/dangerous-encounters-of-the-first-kind/,Dangerous Encounters of the First Kind,1980,movie,104287.0
+/film/gremlins/,Gremlins,1984,movie,927.0
+/film/modern-romance/,Modern Romance,1981,movie,63443.0
+/film/sacrificed-youth/,Sacrificed Youth,1985,movie,202514.0
+/film/spelling-love/,Spelling Love,1984,movie,528337.0
+/film/story-of-women/,Story of Women,1988,movie,41975.0
+/film/the-king-of-comedy/,The King of Comedy,1982,movie,262.0
+/film/the-ravishing-of-frank-n-stein/,The Ravishing of Frank N. Stein,1982,movie,227895.0
+/film/to-sleep-so-as-to-dream/,To Sleep So as to Dream,1986,movie,132702.0
+/film/alaya/,Alaya,1987,movie,427559.0
+/film/alixs-pictures/,Alix's Pictures,1982,movie,198644.0
+/film/audience-1983/,Audience,1983,movie,489181.0
+/film/blood-wedding/,Blood Wedding,1981,movie,42139.0
+/film/hardly-working/,Hardly Working,1980,movie,130724.0
+/film/keep-in-touch-1987/,Keep in Touch,1987,movie,369960.0
+/film/pokkuveyil/,Pokkuveyil,1982,movie,272016.0
+/film/polyester/,Polyester,1981,movie,14269.0
+/film/raising-arizona/,Raising Arizona,1987,movie,378.0
+/film/scenario-du-film-passion/,Scénario du film Passion,1982,movie,188321.0
+/film/the-church/,The Church,1989,movie,40364.0
+/film/visions-in-meditation-1/,Visions in Meditation #1,1989,movie,164596.0
+/film/visions-in-meditation-2-mesa-verde/,Visions in Meditation #2: Mesa Verde,1989,movie,164597.0
+/film/day-of-the-dead/,Day of the Dead,1985,movie,8408.0
+/film/manila-by-night/,Manila by Night,1980,movie,146034.0
+/film/miracle-mile/,Miracle Mile,1988,movie,24739.0
+/film/nocturne-1980-1/,Nocturne,1980,movie,454350.0
+/film/peking-opera-blues/,Peking Opera Blues,1986,movie,39776.0
+/film/the-crime-of-cuenca/,The Crime of Cuenca,1980,movie,105419.0
+/film/the-unbelievable-truth/,The Unbelievable Truth,1989,movie,38545.0
+/film/victor-victoria/,Victor/Victoria,1982,movie,12614.0
+/film/17-reasons-why/,17 Reasons Why,1987,movie,442229.0
+/film/a-nightmare-on-elm-street/,A Nightmare on Elm Street,1984,movie,377.0
+/film/a-passage-to-india/,A Passage to India,1984,movie,15927.0
+/film/burst-city/,Burst City,1982,movie,40110.0
+/film/cat-listening-to-music/,Cat Listening to Music,1988,movie,958497.0
+/film/cosmos-a-personal-voyage/,Cosmos: A Personal Voyage,1980,tv,1430.0
+/film/detective/,Detective,1985,movie,52710.0
+/film/diaries/,Diaries,1981,movie,147927.0
+/film/dislocation/,Dislocation,1986,movie,283195.0
+/film/dressed-in-blue/,Dressed in Blue,1983,movie,259235.0
+/film/hellraiser/,Hellraiser,1987,movie,9003.0
+/film/medea-1988/,Medea,1988,movie,34870.0
+/film/monty-pythons-the-meaning-of-life/,Monty Python's The Meaning of Life,1983,movie,4543.0
+/film/night-on-the-galactic-railroad/,Night on the Galactic Railroad,1985,movie,37585.0
+/film/pals-1982/,Pals,1982,movie,115903.0
+/film/pedicab-driver/,Pedicab Driver,1989,movie,29014.0
+/film/police-story/,Police Story,1985,movie,9056.0
+/film/psycho-ii/,Psycho II,1983,movie,10576.0
+/film/recollections-of-the-yellow-house/,Recollections of the Yellow House,1989,movie,73930.0
+/film/spontaneous-combustion/,Spontaneous Combustion,1989,movie,39195.0
+/film/the-boys-from-fengkuei/,The Boys from Fengkuei,1983,movie,105703.0
+/film/the-horse-thief/,The Horse Thief,1986,movie,42018.0
+/film/the-official-story/,The Official Story,1985,movie,29263.0
+/film/the-untouchables/,The Untouchables,1987,movie,117.0
+/film/this-is-spinal-tap/,This Is Spinal Tap,1984,movie,11031.0
+/film/three-crowns-of-the-sailor/,Three Crowns of the Sailor,1983,movie,64441.0
+/film/therese/,Thérèse,1986,movie,42029.0
+/film/time-for-revenge/,Time for Revenge,1981,movie,43428.0
+/film/american-stories-food-family-and-philosophy/,"American Stories: Food, Family and Philosophy",1989,movie,263358.0
+/film/cutters-way/,Cutter's Way,1981,movie,31593
+/film/dead-poets-society/,Dead Poets Society,1989,movie,207.0
+/film/depression-focus-please/,Depression Focus Please,1984,movie,471813.0
+/film/guinea-pig-mermaid-in-the-manhole/,Guinea Pig: Mermaid in the Manhole,1988,movie,32292.0
+/film/homecomings/,Homecomings,1987,movie,751074.0
+/film/jumping/,Jumping,1984,movie,47217.0
+/film/pestonjee/,Pestonjee,1988,movie,249914.0
+/film/shocker/,Shocker,1989,movie,12521
+/film/the-dream-1987/,The Dream,1987,movie,331120.0
+/film/the-eighties/,The Eighties,1983,movie,136053.0
+/film/the-little-mermaid/,The Little Mermaid,1989,movie,10144.0
+/film/the-satin-slipper/,The Satin Slipper,1985,movie,132799.0
+/film/the-toxic-avenger/,The Toxic Avenger,1984,movie,15239.0
+/film/crossing-delancey/,Crossing Delancey,1988,movie,27397.0
+/film/excalibur/,Excalibur,1981,movie,11527.0
+/film/leila-and-the-wolves/,Leila and the Wolves,1984,movie,273854.0
+/film/mishima-a-life-in-four-chapters/,Mishima: A Life in Four Chapters,1985,movie,27064.0
+/film/rocio/,Rocío,1980,movie,288893.0
+/film/the-emperors-naked-army-marches-on/,The Emperor's Naked Army Marches On,1987,movie,51929.0
+/film/the-long-riders/,The Long Riders,1980,movie,14729.0
+/film/yellow-earth/,Yellow Earth,1984,movie,92990.0
+/film/all-the-marbles/,...All the Marbles,1981,movie,30709.0
+/film/altered-states/,Altered States,1980,movie,11542.0
+/film/brasil/,Brasil,1981,movie,195919.0
+/film/caravaggio/,Caravaggio,1986,movie,20537.0
+/film/carmen-1983/,Carmen,1983,movie,42106.0
+/film/de-onvoltooide-tulp/,De Onvoltooide Tulp,1980,movie,523485.0
+/film/dead-mans-letters/,Dead Man's Letters,1986,movie,73920.0
+/film/five-year-diary-reel-23-a-breakdown-and-after-the-mental-hospital-september-1-december-13-1982/,"Five Year Diary, Reel 23: A Breakdown (and) After the Mental Hospital (September 1–December 13, 1982)",1982,movie,543537.0
+/film/from-the-reports-of-security-guards-patrol/,From the Reports of Security Guards & Patrol Services No.1,1985,movie,325005.0
+/film/gloria/,Gloria,1980,movie,10889.0
+/film/harry-son/,Harry & Son,1984,movie,91767.0
+/film/hotel-terminus-the-life-and-times-of-klaus-barbie/,Hôtel Terminus: The Life and Times of Klaus Barbie,1988,movie,41954.0
+/film/i-love-it-from-behind/,I Love It from Behind!,1981,movie,147958.0
+/film/liberty-at-night/,Liberty at Night,1984,movie,110743.0
+/film/local-hero/,Local Hero,1983,movie,11235.0
+/film/love-women-and-flowers/,"Love, Women and Flowers",1988,movie,713083.0
+/film/mississippi-burning/,Mississippi Burning,1988,movie,1632.0
+/film/movie-dementia/,Movie Dementia,1986,movie,167468.0
+/film/my-dinner-with-andre/,My Dinner with Andre,1981,movie,25468.0
+/film/once-more-1988/,Once More,1988,movie,187602.0
+/film/parsifal/,Parsifal,1982,movie,176167.0
+/film/piece-touchee/,Pièce touchée,1989,movie,93481.0
+/film/grandeur-and-decadence-of-a-small-time-filmmaker/,Rise and Fall of a Small Film Company,1986,movie,271799.0
+/film/the-ballad-of-narayama/,The Ballad of Narayama,1983,movie,42113.0
+/film/the-book-of-mary/,The Book of Mary,1985,movie,213115.0
+/film/a-midsummer-nights-sex-comedy/,A Midsummer Night's Sex Comedy,1982,movie,8288.0
+/film/a-pool-without-water/,A Pool Without Water,1982,movie,64527.0
+/film/an-american-tail/,An American Tail,1986,movie,4978.0
+/film/bad-timing/,Bad Timing,1980,movie,33214.0
+/film/boat-people/,Boat People,1982,movie,72445.0
+/film/city-of-lost-souls/,City of Lost Souls,1983,movie,130891.0
+/film/crime-wave-1985/,Crime Wave,1985,movie,27294.0
+/film/desert-hearts/,Desert Hearts,1985,movie,294.0
+/film/diva/,Diva,1981,movie,4485.0
+/film/fertile-memory/,Fertile Memory,1980,movie,273110.0
+/film/grown-ups-1980/,Grown-Ups,1980,movie,187565
+/film/handsworth-songs/,Handsworth Songs,1986,movie,124027.0
+/film/i-dreaming/,I... Dreaming,1988,movie,126193.0
+/film/johnny-chicano/,Johnny Chicano,1981,movie,674115.0
+/film/mammame/,Mammame,1986,movie,213898.0
+/film/moral/,Moral,1982,movie,253805.0
+/film/near-death-1989/,Near Death,1989,movie,93540.0
+/film/on-top-of-the-whale/,On Top of the Whale,1982,movie,126420.0
+/film/panorama-1982/,Panorama,1982,movie,871995
+/film/re-wind/,Re-Wind,1988,movie,87297.0
+/film/the-heifer/,The Heifer,1985,movie,71799.0
+/film/the-postman-always-rings-twice-1981/,The Postman Always Rings Twice,1981,movie,11027
+/film/the-serpent-and-the-rainbow/,The Serpent and the Rainbow,1988,movie,11503.0
+/film/the-tree-and-the-cat/,The Tree and the Cat,1983,movie,439399.0
+/film/they-all-laughed/,They All Laughed,1981,movie,31921.0
+/film/threads/,Threads,1984,movie,17835.0
+/film/wedding-in-galilee/,Wedding in Galilee,1987,movie,49168.0
+/film/why-has-bodhi-dharma-left-for-the-east/,Why Has Bodhi-Dharma Left for the East?,1989,movie,62637.0
+/film/yeelen/,Yeelen,1987,movie,71329.0
+/film/zigeunerweisen/,Zigeunerweisen,1980,movie,110899.0
+/film/legend-of-tianyun-mountain/,Legend of Tianyun Mountain,1980,movie,131482.0
+/film/moonlighting/,Moonlighting,1982,movie,42134.0
+/film/red-sorghum/,Red Sorghum,1988,movie,42006.0
+/film/2084-video-clip-for-the-trade-unions-reflection-and-pleasure/,2084: Video Clip for the Trade Unions' Reflection and Pleasure,1984,movie,203226.0
+/film/a-chinese-ghost-story/,A Chinese Ghost Story,1987,movie,30421.0
+/film/beetlejuice/,Beetlejuice,1988,movie,4011.0
+/film/chocolat-1988/,Chocolat,1988,movie,41951.0
+/film/gauche-the-cellist/,Gauche the Cellist,1982,movie,41017.0
+/film/my-left-foot-the-story-of-christy-brown/,My Left Foot: The Story of Christy Brown,1989,movie,10161.0
+/film/something-wild/,Something Wild,1986,movie,11300.0
+/film/the-power-of-emotion/,The Power of Emotion,1983,movie,132075.0
+/film/under-the-sun-of-satan/,Under the Sun of Satan,1987,movie,31300.0
+/film/vengeance-is-mine-1984/,Vengeance Is Mine,1984,movie,461788.0
+/film/atlantic-city/,Atlantic City,1980,movie,23954.0
+/film/beijing-watermelon/,Beijing Watermelon,1989,movie,320042.0
+/film/beyond-the-walls-1985/,Beyond the Walls,1985,movie,259435.0
+/film/body-heat/,Body Heat,1981,movie,14412.0
+/film/christine-1983/,Christine,1983,movie,8769
+/film/christine-1987/,Christine,1987,movie,168238
+/film/comrades/,Comrades,1986,movie,49500.0
+/film/dirty-dancing/,Dirty Dancing,1987,movie,88.0
+/film/documenteur/,Documenteur,1981,movie,157160.0
+/film/empty-suitcases/,Empty Suitcases,1980,movie,442408.0
+/film/ferris-buellers-day-off/,Ferris Bueller's Day Off,1986,movie,9377.0
+/film/final-victory/,Final Victory,1987,movie,44861.0
+/film/friendly-witness/,Friendly Witness,1989,movie,282721.0
+/film/gary-cooper-who-art-in-heaven/,"Gary Cooper, Who Art in Heaven",1980,movie,105418.0
+/film/gestures-and-fragments/,Gestures and Fragments,1983,movie,262652.0
+/film/illuminated-texts/,Illuminated Texts,1982,movie,437601.0
+/film/landscape-for-manon/,Landscape (for Manon),1987,movie,230056.0
+/film/les-tournesols/,Les tournesols,1982,movie,251607.0
+/film/life-and-nothing-but/,Life and Nothing But,1989,movie,41936.0
+/film/lost-in-new-york/,Lost in New York,1989,movie,105915.0
+/film/luzs-motives/,Luz's Motives,1985,movie,240592.0
+/film/magino-village-a-tale/,Magino Village: A Tale,1987,movie,357587.0
+/film/manoels-destinies/,Manoel’s Destinies,1984,movie,469172.0
+/film/maurice/,Maurice,1987,movie,26371.0
+/film/moscow-elegy/,Moscow Elegy,1987,movie,183219.0
+/film/my-american-uncle/,My American Uncle,1980,movie,39543.0
+/film/my-sweet-little-village/,My Sweet Little Village,1985,movie,31410.0
+/film/my-weekend/,My Weekend,1987,movie,829699.0
+/film/permanent-vacation/,Permanent Vacation,1980,movie,37997
+/film/pools/,Pools,1981,movie,335348.0
+/film/pure-blood-1982/,Pure Blood,1982,movie,134245.0
+/film/santa-fe-1985/,Santa Fe,1985,movie,155203.0
+/film/school-on-fire/,School on Fire,1988,movie,112929.0
+/film/sodom/,Sodom,1989,movie,316207.0
+/film/sync-touch/,Sync Touch,1981,movie,560803.0
+/film/tabula-rasa-1989/,Tabula Rasa,1989,movie,374488.0
+/film/taxi-zum-klo/,Taxi zum Klo,1980,movie,35125.0
+/film/the-big-easy/,The Big Easy,1986,movie,11028
+/film/the-charterhouse-of-parma-1982/,The Charterhouse of Parma,1982,tv,72192.0
+/film/the-hidden/,The Hidden,1987,movie,12476.0
+/film/the-iconographic-journey-the-martyrdom-of/,The Iconographic Journey: The Martyrdom of Saint Sebastian,1989,movie,502452.0
+/film/the-woman-in-black/,The Woman in Black,1989,movie,16182.0
+/film/the-wounded-man/,The Wounded Man,1983,movie,2304.0
+/film/true-love-1989/,True Love,1989,movie,111605.0
+/film/unconscious-london-strata/,Unconscious London Strata,1981,movie,164602.0
+/film/vampires-in-havana/,Vampires in Havana,1985,movie,90063.0
+/film/why-is-the-sky-blue/,Why Is the Sky Blue?,1981,movie,333206.0
+/film/mystery-train/,Mystery Train,1989,movie,11305.0
+/film/arabesques-on-the-pirosmani-theme/,Arabesques on the Pirosmani Theme,1985,movie,335204.0
+/film/heathers/,Heathers,1989,movie,2640.0
+/film/iguana/,Iguana,1988,movie,191229.0
+/film/in-a-glass-cage/,In a Glass Cage,1986,movie,46767.0
+/film/jeune-femme-a-sa-fenetre-lisant-une-lettre/,Jeune femme à sa fenêtre lisant une lettre,1983,movie,262479.0
+/film/little-shop-of-horrors/,Little Shop of Horrors,1986,movie,10776.0
+/film/mala-noche/,Mala Noche,1986,movie,383.0
+/film/pieces/,Pieces,1982,movie,47886.0
+/film/police-1985/,Police,1985,movie,6320.0
+/film/the-eyes-the-mouth/,"The Eyes, the Mouth",1982,movie,186551.0
+/film/the-last-metro/,The Last Metro,1980,movie,1716.0
+/film/the-mission/,The Mission,1986,movie,11416.0
+/film/the-name-of-the-rose/,The Name of the Rose,1986,movie,192.0
+/film/the-outsiders/,The Outsiders,1983,movie,227.0
+/film/top-secret/,Top Secret!,1984,movie,8764.0
+/film/violent-cop/,Violent Cop,1989,movie,12622
+/film/1857-fools-gold/,1857 (Fool's Gold),1981,movie,437598.0
+/film/a-film-that-uses-a-cheap-wine-glass-to-consider-light/,A Film That Uses a Cheap Wine Glass to Consider Light,1989,movie,660737.0
+/film/a-girl-in-summer/,A Girl in Summer,1986,movie,245893.0
+/film/a-nightmare-on-elm-street-part-2-freddys-revenge/,A Nightmare on Elm Street Part 2: Freddy's Revenge,1985,movie,10014.0
+/film/a-room-with-a-view/,A Room with a View,1986,movie,11257.0
+/film/a-summer-at-grandpas/,A Summer at Grandpa's,1984,movie,92989.0
+/film/a-sunday-in-the-country/,A Sunday in the Country,1984,movie,42102.0
+/film/a-visitor-to-a-museum/,A Visitor to a Museum,1989,movie,73922.0
+/film/american-pop/,American Pop,1981,movie,29204.0
+/film/amor-1980/,Amor,1980,movie,263808.0
+/film/anselmo-and-the-women/,Anselmo and the Women,1986,movie,382421.0
+/film/ashik-kerib/,Ashik Kerib,1988,movie,92663
+/film/be-pretty-and-shut-up/,Be Pretty and Shut Up!,1981,movie,311267.0
+/film/bent-time/,Bent Time,1983,movie,336061.0
+/film/blind-1986/,Blind,1986,movie,129682.0
+/film/bloody-moon/,Bloody Moon,1981,movie,39918.0
+/film/blowin-in-the-wind-1985/,Blowin' in the Wind,1985,movie,1476699.0
+/film/book-of-days/,Book of Days,1989,movie,260352.0
+/film/bound-for-the-fields-the-mountains-and-the-seacoast/,"Bound for the Fields, the Mountains, and the Seacoast",1986,movie,164378.0
+/film/cafe-flesh/,Café Flesh,1982,movie,30824
+/film/cap-canaille/,Cap Canaille,1983,movie,263538.0
+/film/caprice-1986/,Caprice,1986,movie,586745.0
+/film/creepshow/,Creepshow,1982,movie,16281.0
+/film/demons/,Demons,1985,movie,14029.0
+/film/diary-1983/,Diary,1983,movie,44394.0
+/film/emergency-kisses/,Emergency Kisses,1989,movie,65885.0
+/film/fame/,Fame,1980,movie,3537.0
+/film/gallipoli/,Gallipoli,1981,movie,11646.0
+/film/gamelan/,Gamelan,1981,movie,482076.0
+/film/gunbuster/,Gunbuster,1988,tv,66931.0
+/film/he-stands-in-a-desert-counting-the-seconds-of-his-life/,He Stands in a Desert Counting the Seconds of His Life,1986,movie,190060.0
+/film/het-vertraagde-vertrek/,Het vertraagde vertrek,1983,movie,523490.0
+/film/jane-b-by-agnes-v/,Jane B. by Agnès V.,1988,movie,53028.0
+/film/king-of-the-children/,King of the Children,1987,movie,148597.0
+/film/losing-ground/,Losing Ground,1982,movie,273896.0
+/film/luminare/,Luminare,1986,movie,638984.0
+/film/made-in-heaven/,Made in Heaven,1987,movie,42010.0
+/film/mambru-went-to-war/,Mambru Went to War,1986,movie,144319.0
+/film/my-friend-ivan-lapshin/,My Friend Ivan Lapshin,1985,movie,83491.0
+/film/om-dar-b-dar/,Om Dar-B-Dar,1988,movie,242618.0
+/film/passage-du-desir-1988/,Passage du désir,1988,movie,500874.0
+/film/perfect-strangers-1984/,Perfect Strangers,1984,movie,78711.0
+/film/re-animator/,Re-Animator,1985,movie,1694.0
+/film/sacre-coeur/,Sacré-Coeur,1983,movie,575201.0
+/film/shit-saturday/,Shit Saturday,1988,movie,245793.0
+/film/slumber-party-massacre-ii/,Slumber Party Massacre II,1987,movie,27764.0
+/film/sol-y-sombra-1988/,Sol y sombra,1988,movie,474147.0
+/film/son-of-the-white-mare/,Son of the White Mare,1981,movie,41077.0
+/film/south-slope-what-love-tells-me/,South Slope: What Love Tells Me,1980,movie,658936.0
+/film/the-cyclist/,The Cyclist,1989,movie,44072.0
+/film/the-eye-above-the-well/,The Eye Above the Well,1988,movie,191060.0
+/film/the-great-mouse-detective/,The Great Mouse Detective,1986,movie,9994.0
+/film/the-herdsman/,The Herdsman,1982,movie,255973.0
+/film/the-insomniac-on-the-bridge/,The Insomniac on the Bridge,1985,movie,316065.0
+/film/the-khayal-saga/,The Khayal Saga,1989,movie,347634.0
+/film/the-secret-of-nimh/,The Secret of NIMH,1982,movie,11704.0
+/film/there-were-seven-simeons/,There Were Seven Simeons,1989,movie,503497.0
+/film/tokyo-pop/,Tokyo Pop,1988,movie,186379
+/film/unfinished-diary/,Unfinished Diary,1982,movie,284638.0
+/film/when-father-was-away-on-business/,When Father Was Away on Business,1985,movie,21042.0
+/film/yume-chiyo/,Yume-Chiyo,1985,movie,398585.0
+/film/efpsychi/,Efpsychi,1983,movie,423743.0
+/film/our-century/,Our Century,1983,movie,200140.0
+/film/pale-rider/,Pale Rider,1985,movie,8879.0
+/film/parting-glances/,Parting Glances,1986,movie,32446.0
+/film/stage-fright-1987/,Stage Fright,1987,movie,20465.0
+/film/the-black-tower/,The Black Tower,1987,movie,345408.0
+/film/the-girl-who-leapt-through-time-1983/,The Girl Who Leapt Through Time,1983,movie,62385.0
+/film/the-texas-chainsaw-massacre-2/,The Texas Chainsaw Massacre 2,1986,movie,16337.0
+/film/walker/,Walker,1987,movie,28448.0
+/film/round-midnight/,'Round Midnight,1986,movie,14670.0
+/film/a-short-film-about-killing/,A Short Film About Killing,1988,movie,10754.0
+/film/animacion-en-la-sala-de-espera/,Animación en la sala de espera,1981,movie,458494.0
+/film/another-woman/,Another Woman,1988,movie,22478.0
+/film/artificial-paradise-1986/,Artificial Paradise,1986,movie,382612.0
+/film/assa/,Assa,1987,movie,47985.0
+/film/babettes-feast/,Babette's Feast,1987,movie,11832.0
+/film/barcelona-sur/,Barcelona sur,1981,movie,301845.0
+/film/bertas-motives/,Berta's Motives,1984,movie,149149.0
+/film/brain-damage/,Brain Damage,1988,movie,27814.0
+/film/brick-by-brick/,Brick by Brick,1982,movie,420832.0
+/film/cobra-1986/,Cobra,1986,movie,9874.0
+/film/conan-the-barbarian/,Conan the Barbarian,1982,movie,9387.0
+/film/course-completed/,Course Completed,1987,movie,202789.0
+/film/daniel/,Daniel,1983,movie,55819.0
+/film/danton-1983/,Danton,1983,movie,4202.0
+/film/day-of-the-idiots/,Day of the Idiots,1981,movie,5728.0
+/film/dont-cry-for-salim-the-lame/,Don't Cry for Salim the Lame,1989,movie,128677.0
+/film/door-1988/,Door,1988,movie,405746.0
+/film/effeuiller-lacanthe/,Effeuiller l'acanthe,1987,movie,575205.0
+/film/engram/,Engram,1987,movie,328182.0
+/film/esthappan/,Esthappan,1980,movie,257583.0
+/film/first-blood/,First Blood,1982,movie,1368.0
+/film/flying-images/,Flying Images,1989,movie,780535.0
+/film/forest-of-bliss/,Forest of Bliss,1986,movie,84001.0
+/film/good-riddance/,Good Riddance,1980,movie,100984.0
+/film/gosenzo-sama-banbanzai/,Gosenzo-sama Banbanzai!,1989,tv,113157
+/film/halloween-iii-season-of-the-witch/,Halloween III: Season of the Witch,1982,movie,10676.0
+/film/hay-que-deshacer-la-casa/,Hay que deshacer la casa,1986,movie,189306.0
+/film/heimat-1984/,Heimat,1984,tv,43059.0
+/film/image-noise-osmins-windows/,Image Noise (Osmin's Windows),1984,movie,500867.0
+/film/july/,July,1988,movie,256857.0
+/film/last-romance/,Last Romance,1988,movie,255856.0
+/film/letters-home/,Letters Home,1986,movie,385164.0
+/film/lev-tolstoy/,Lev Tolstoy,1984,movie,148858.0
+/film/lianna/,Lianna,1983,movie,78177.0
+/film/lola-1981/,Lola,1981,movie,2264.0
+/film/loulou/,Loulou,1980,movie,39415.0
+/film/love-around-the-corner/,Love Around the Corner,1986,movie,240591.0
+/film/mary-poppins-goodbye-1984/,"Mary Poppins, Goodbye",1984,tv,43182
+/film/maternal-filigree/,Maternal Filigree,1980,movie,472438.0
+/film/muscle/,Muscle,1989,movie,49593.0
+/film/my-bodyguard/,My Bodyguard,1980,movie,21873.0
+/film/my-twentieth-century/,My Twentieth Century,1989,movie,49978.0
+/film/next-of-kin-1984/,Next of Kin,1984,movie,108241.0
+/film/noisy-requiem/,Noisy Requiem,1988,movie,104201.0
+/film/one-day-pina-asked/,One Day Pina Asked...,1983,movie,243379.0
+/film/our-voice-of-earth-memory-and-future/,"Our Voice of Earth, Memory and Future",1982,movie,272685
+/film/peggy-sue-got-married/,Peggy Sue Got Married,1986,movie,10013.0
+/film/pelle-the-conqueror/,Pelle the Conqueror,1987,movie,11174.0
+/film/planes-trains-and-automobiles/,"Planes, Trains and Automobiles",1987,movie,2609.0
+/film/portrait-of-a-lazy-woman/,Portrait of a Lazy Woman,1986,movie,646171.0
+/film/possibly-in-michigan/,Possibly in Michigan,1983,movie,332755.0
+/film/quest-for-fire/,Quest for Fire,1981,movie,62204.0
+/film/repentance/,Repentance,1984,movie,96920.0
+/film/repo-man/,Repo Man,1984,movie,13820.0
+/film/sequences/,Sequences...,1982,movie,114202.0
+/film/smithereens/,Smithereens,1982,movie,94066.0
+/film/smooth-talk/,Smooth Talk,1985,movie,33766.0
+/film/sparsh/,Sparsh,1980,movie,173728.0
+/film/station/,Station,1981,movie,115221.0
+/film/stico/,Stico,1985,movie,205942.0
+/film/street-of-crocodiles/,Street of Crocodiles,1986,movie,59357.0
+/film/tales-from-the-gimli-hospital/,Tales from the Gimli Hospital,1988,movie,41967.0
+/film/the-angel-1982/,The Angel,1982,movie,107391.0
+/film/the-big-red-one/,The Big Red One,1980,movie,16121.0
+/film/the-black-cannon-incident/,The Black Cannon Incident,1985,movie,176643.0
+/film/the-decline-of-western-civilization/,The Decline of Western Civilization,1981,movie,21137.0
+/film/the-empire-of-desire/,The Empire of Desire,1981,movie,163252.0
+/film/the-fallen-world/,The Fallen World,1983,movie,424518.0
+/film/the-fan-1981/,The Fan,1981,movie,74899.0
+/film/the-house-by-the-cemetery/,The House by the Cemetery,1981,movie,28794.0
+/film/the-king-and-the-mockingbird/,The King and the Mockingbird,1980,movie,22504.0
+/film/the-last-of-england/,The Last of England,1987,movie,41970.0
+/film/the-living-dead-girl/,The Living Dead Girl,1982,movie,77010.0
+/film/the-minamata-mural/,The Minamata Mural,1981,movie,654295.0
+/film/the-naked-gun-from-the-files-of-police-squad/,The Naked Gun: From the Files of Police Squad!,1988,movie,37136.0
+/film/the-state-of-things/,The State of Things,1982,movie,30363.0
+/film/the-store/,The Store,1983,movie,110777
+/film/the-summer-of-miss-forbes/,The Summer of Miss Forbes,1989,movie,388276
+/film/the-swing-1983/,The Swing,1983,movie,409487.0
+/film/the-year-my-voice-broke/,The Year My Voice Broke,1987,movie,19958.0
+/film/tightrope/,Tightrope,1984,movie,11707.0
+/film/tobacco-embers/,Tobacco Embers,1982,movie,700606.0
+/film/trading-places/,Trading Places,1983,movie,1621.0
+/film/travelling-circus/,Travelling Circus,1988,movie,256052.0
+/film/under-the-bridge/,Under the Bridge,1984,movie,131484.0
+/film/wall-street/,Wall Street,1987,movie,10673.0
+/film/water-and-power/,Water and Power,1989,movie,117565.0
+/film/when-the-tenth-month-comes/,When the Tenth Month Comes,1984,movie,175966.0
+/film/withnail-i/,Withnail & I,1987,movie,13446.0
+/film/wuthering-heights-1985/,Wuthering Heights,1985,movie,145745.0
+/film/a-terrible-vengeance/,A Terrible Vengeance,1987,movie,373039.0
+/film/after-winter-comes-spring/,After Winter Comes Spring,1988,movie,245402.0
+/film/alexander-the-great-1980/,Alexander the Great,1980,movie,111988.0
+/film/an-autumns-tale/,An Autumn's Tale,1987,movie,64015.0
+/film/anguish/,Anguish,1987,movie,42002.0
+/film/barres/,Barres,1984,movie,148626.0
+/film/caminito-al-cielo/,Caminito al cielo,1989,movie,615840.0
+/film/camp-de-thiaroye/,Camp de Thiaroye,1988,movie,103203.0
+/film/cerveza-bud/,Cerveza Bud,1981,movie,302379.0
+/film/chronopolis/,Chronopolis,1982,movie,65504
+/film/city-on-fire/,City on Fire,1987,movie,42120.0
+/film/crossroads-1986/,Crossroads,1986,movie,15392.0
+/film/dark-eyes/,Dark Eyes,1987,movie,44658.0
+/film/dark-habits/,Dark Habits,1983,movie,8220
+/film/dhrupad/,Dhrupad,1983,movie,136050.0
+/film/escape-to-victory/,Escape to Victory,1981,movie,17360.0
+/film/fiestas/,Fiestas,1988,movie,1081097.0
+/film/ghost-1985/,Ghost,1985,movie,258570.0
+/film/guilt-1988/,Guilt,1988,movie,434023.0
+/film/hatsu-yume-first-dream/,Hatsu Yume (First Dream),1981,movie,186392.0
+/film/heartbreakers-1984/,Heartbreakers,1984,movie,91556.0
+/film/high-hopes/,High Hopes,1988,movie,47870.0
+/film/him-and-me/,Him and Me,1982,movie,157042
+/film/hollywood-shuffle/,Hollywood Shuffle,1987,movie,34101
+/film/housekeeping/,Housekeeping,1987,movie,65501.0
+/film/i-are-you-you-am-me/,"I Are You, You Am Me",1982,movie,129689.0
+/film/indiana-jones-and-the-temple-of-doom/,Indiana Jones and the Temple of Doom,1984,movie,87.0
+/film/insignificance/,Insignificance,1985,movie,42035.0
+/film/into-the-night/,Into the Night,1985,movie,11338.0
+/film/jigsaw-1980/,Jigsaw,1980,movie,1436889.0
+/film/kamikaze-hearts/,Kamikaze Hearts,1986,movie,215539.0
+/film/lady-of-the-camelias/,Lady of the Camelias,1981,movie,67539.0
+/film/leningrad-cowboys-go-america/,Leningrad Cowboys Go America,1989,movie,11475.0
+/film/lethal-weapon/,Lethal Weapon,1987,movie,941.0
+/film/living-dangerously-1987/,Living Dangerously,1987,movie,312030.0
+/film/lola-1989/,Lola,1989,movie,145854.0
+/film/lonely-heart-1985/,Lonely Heart,1985,movie,261525.0
+/film/madrid-1987-1/,Madrid,1987,movie,260803.0
+/film/manhattan-baby/,Manhattan Baby,1982,movie,30875.0
+/film/film:253238/,Maria,1988,movie,326038.0
+/film/merry-go-round-1980/,Merry-Go-Round,1980,movie,162514.0
+/film/moors-and-christians/,Moors and Christians,1987,movie,116314.0
+/film/muddy-river/,Muddy River,1981,movie,125257.0
+/film/night-music/,Night Music,1986,movie,126197.0
+/film/nightshift-1981/,Nightshift,1981,movie,325956.0
+/film/nineteen-eighty-four-1984/,Nineteen Eighty-Four,1984,movie,9314.0
+/film/notre-dame-de-la-croisette/,Notre Dame de la Croisette,1981,movie,456033.0
+/film/oriana/,Oriana,1985,movie,96419.0
+/film/performance-san-pablo-san-martin/,Performance San Pablo-San Martin,1986,movie,1089836.0
+/film/polly-perverse-strikes-again/,Polly Perverse Strikes Again!,1986,movie,224090.0
+/film/predator/,Predator,1987,movie,106.0
+/film/prometheus-garden/,Prometheus' Garden,1987,movie,69025.0
+/film/red-sonja/,Red Sonja,1985,movie,9626.0
+/film/rio-babilonia/,Rio Babilonia,1982,movie,152242.0
+/film/risky-business/,Risky Business,1983,movie,9346.0
+/film/rocky-iv/,Rocky IV,1985,movie,1374
+/film/rue-fontaine/,Rue Fontaine,1984,movie,261921.0
+/film/scanners/,Scanners,1981,movie,9538.0
+/film/selva-a-portrait-of-parvaneh-navai/,Selva. A Portrait of Parvaneh Navaï,1982,movie,263277.0
+/film/september/,September,1987,movie,22477.0
+/film/sleepwalk/,Sleepwalk,1986,movie,97640.0
+/film/something-wicked-this-way-comes/,Something Wicked This Way Comes,1983,movie,24808.0
+/film/southern-comfort/,Southern Comfort,1981,movie,12528.0
+/film/splices-for-sharits/,Splices for Sharits,1980,movie,417077.0
+/film/streets-of-fire/,Streets of Fire,1984,movie,14746.0
+/film/sweet-love-remembered/,Sweet Love Remembered,1980,movie,437602.0
+/film/terminals/,Terminals,1986,movie,473586.0
+/film/the-abyss/,The Abyss,1989,movie,2756.0
+/film/the-atomic-cafe/,The Atomic Cafe,1982,movie,26851.0
+/film/the-big-heat-1988/,The Big Heat,1988,movie,104259.0
+/film/the-black-dog/,The Black Dog,1987,movie,362786.0
+/film/the-blues-brothers/,The Blues Brothers,1980,movie,525.0
+/film/the-cannibals/,The Cannibals,1988,movie,198450.0
+/film/the-color-of-money/,The Color of Money,1986,movie,11873.0
+/film/the-discarnates/,The Discarnates,1988,movie,129096.0
+/film/the-flavor-of-corn/,The Flavor of Corn,1989,movie,178195.0
+/film/the-funhouse/,The Funhouse,1981,movie,13555.0
+/film/the-hitcher/,The Hitcher,1986,movie,9542.0
+/film/the-howling/,The Howling,1981,movie,11298.0
+/film/the-mark-of-lilith/,The Mark of Lilith,1986,movie,419776.0
+/film/the-mysterious-castle-in-the-carpathians/,The Mysterious Castle in the Carpathians,1981,movie,54755.0
+/film/the-realm-of-fortune/,The Realm of Fortune,1986,movie,268641.0
+/film/the-seats-of-the-alcazar/,The Seats of the Alcazar,1989,movie,181123
+/film/the-secret-garden-1988/,The Secret Garden,1988,movie,347734.0
+/film/the-slumber-party-massacre/,The Slumber Party Massacre,1982,movie,27475.0
+/film/the-song-of-stockholm/,The Song of Stockholm,1981,movie,492864.0
+/film/the-story-of-woo-viet/,The Story of Woo Viet,1981,movie,256071.0
+/film/the-war-of-the-worlds-next-century/,The War of the Worlds: Next Century,1981,movie,185354.0
+/film/the-way-south/,The Way South,1981,movie,269963.0
+/film/the-zerda-or-the-songs-of-forgetting/,The Zerda or the Songs of Forgetting,1983,movie,273852.0
+/film/tokyo-melody-a-film-about-ryuichi-sakamoto/,Tokyo Melody: A Film About Ryuichi Sakamoto,1985,movie,400033.0
+/film/top-gun/,Top Gun,1986,movie,744.0
+/film/toscas-kiss/,Tosca's Kiss,1984,movie,217778.0
+/film/tron/,Tron,1982,movie,97.0
+/film/turumba/,Turumba,1981,movie,149938.0
+/film/vincent/,Vincent,1982,movie,32085.0
+/film/voyage-to-cythera/,Voyage to Cythera,1984,movie,47792.0
+/film/wall-1987/,Wall,1987,movie,283871.0
+/film/when-the-wind-blows/,When the Wind Blows,1986,movie,10857.0
+/film/yokohama-bj-blues/,Yokohama BJ Blues,1981,movie,318955.0
