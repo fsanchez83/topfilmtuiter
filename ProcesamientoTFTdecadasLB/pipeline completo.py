@@ -42,28 +42,28 @@ else:
   print("Ejecución correcta de TopFilmTinder")
 
 # # Script 06
-# try:
-#   exec(open("seguidoresLB.py").read())
-# except:
-#   print("Ha ocurrido un error en seguidoresLB")
-# else:
-#   print("Ejecución correcta de seguidoresLB")
+try:
+  exec(open("seguidoresLB.py").read())
+except:
+  print("Ha ocurrido un error en seguidoresLB")
+else:
+  print("Ejecución correcta de seguidoresLB")
 #
 # # Script 07
-# try:
-#   exec(open("seguidoresLB_filtroTFT.py").read())
-# except:
-#   print("Ha ocurrido un error en seguidoresLB_filtroTFT")
-# else:
-#   print("Ejecución correcta de seguidoresLB_filtroTFT")
-#
+try:
+  exec(open("seguidoresLB_filtroTFT.py").read())
+except:
+  print("Ha ocurrido un error en seguidoresLB_filtroTFT")
+else:
+  print("Ejecución correcta de seguidoresLB_filtroTFT")
+
 # # Script 08
-# try:
-#   exec(open("datos_usuario.py").read())
-# except:
-#   print("Ha ocurrido un error en datos_usuario")
-# else:
-#   print("Ejecución correcta de datos_usuario")
+try:
+  exec(open("datos_usuario.py").read())
+except:
+  print("Ha ocurrido un error en datos_usuario")
+else:
+  print("Ejecución correcta de datos_usuario")
 
 elapsed = time.time() - t
 print(elapsed)

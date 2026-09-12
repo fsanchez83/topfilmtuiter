@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
         print(df_usuarios.iloc[i]['Participante'])
         try:
-            for intento in range(3):
+            for intento in range(5):
                 lista_films, url = get_films(df_usuarios.iloc[i]['Lista'], 25)
                 if len(lista_films) > 0:
                     break
